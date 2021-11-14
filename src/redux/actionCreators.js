@@ -2,7 +2,7 @@ const url = "http://localhost:3000/"
 
 export const getLocations = (zipcode) => {
   return dispatch => fetch(`${url}locations/zip-search/${zipcode}`)
-    .then(response => response.json())
+    .then(result => result.json())
     .then(locations => dispatch({type: "GET_LOCATIONS", payload: locations})
     )
 }
@@ -24,10 +24,10 @@ export const submitSignup = (user) => {
     },
     body: JSON.stringify(user),
   })
-  .then(result => result.json())
-  .then(response => {
-    localStorage.token = response.token
-    dispatch({type: "SET_USER", payload: response.user})
+  .then(response => response.json())
+  .then(result => {
+    localStorage.token = result.token
+    dispatch({type: "SET_USER", payload: result.user})
   })
 }
 
@@ -39,10 +39,10 @@ export const submitLogin = (user) => {
     },
     body: JSON.stringify(user),
   })
-  .then(result => result.json())
-  .then(response => {
-    localStorage.token = response.token
-    dispatch({type: "SET_USER", payload: response.user})
+  .then(response => response.json())
+  .then(result => {
+    localStorage.token = result.token
+    dispatch({type: "SET_USER", payload: result.user})
   })
 }
 
