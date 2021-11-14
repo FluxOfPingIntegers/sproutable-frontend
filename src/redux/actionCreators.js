@@ -30,3 +30,31 @@ export const submitSignup = (user) => {
     dispatch({type: "SET_USER", payload: response.user})
   })
 }
+
+export const submitLogin = (user) => {
+  return dispatch => fetch(`${url}sessions`, {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(user),
+  })
+  .then(result => result.json())
+  .then(response => {
+    localStorage.token = response.token
+    dispatch({type: "SET_USER", payload: response.user})
+  })
+}
+
+export const autoLogin = () => {
+  return dispatch => fetch(`${url}me`, {
+    headers: {
+      'Authorization': localStorage.token
+    }
+  })
+  .then(response => response.json())
+  .then(result => {
+    localStorage.token = result.token
+    dispatch({type: "SET_USER", payload: result.user})
+  })
+}
