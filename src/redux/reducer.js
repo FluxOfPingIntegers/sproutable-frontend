@@ -10,3 +10,26 @@ const initialLocation = {
   pass: 0,
   image: "",
 }
+
+const initialState = {
+  locations: [],
+  selectedLocation: initialLocation,
+  user: {
+    username: ""
+  }
+}
+
+export function reducer(state=initialState, action){
+  switch(action.type){
+    case "GET_LOCATIONS":
+      return {...state, locations: action.payload};
+    case "GET_LOCATION":
+      return {...state, slectedLocation: action.payload};
+    case "CLEAR_LOCATION":
+      return {...state, selectedLocation: initialLocation};
+    case "SET_USER":
+      return {...state, user: action.payload};
+    default:
+      return {...state}
+  }
+}
