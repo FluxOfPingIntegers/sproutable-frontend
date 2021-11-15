@@ -1,6 +1,6 @@
 import './App.css'
-import { LocationShow, Nav, Auth } from './containers'
-import { } from './components'
+import { LocationIndex } from './containers'
+import { LocationShow, Nav, Auth } from './components'
 import { Switch, Route } from "react-router-dom"
 import { connect } from 'react-redux'
 import { useEffect } from 'react'
@@ -12,22 +12,19 @@ function App({user, autoLogin}) {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      { user.username ?
+        <Switch>
+          <Route path="/locations/zip-search/:zipcode"><LocationIndex/></Route>
+          <Route path="/locations/:id"><LocationShow/></Route>
+          <Route exact path="/"><LocationIndex/></Route>
+        </Switch> : 
+        <Auth/>
+      }
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({user: state.user})
+
+export default connect(mapStateToProps, {autoLogin})(App);
