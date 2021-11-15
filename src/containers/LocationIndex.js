@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { getLocations } from '../redux/actionCreators'
 import { connect } from 'react-redux'
-import { LocationCard } from "../components/LocationCard"
+import LocationCard from "../components/LocationCard"
 
 function LocationIndex({getLocations, locations}){
   useEffect(getLocations, [getLocations])
