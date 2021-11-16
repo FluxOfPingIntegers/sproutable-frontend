@@ -13,7 +13,7 @@ function LocationShow({id, name, image, description, hours, address, zipcode}){
 
   const loading = () => <p>...Loading...</p>
 
-  const loadedPage = () => <div className="show">
+  const loadedPage = () => <div className="LocationShow">
     <h1>{name}</h1>
     <img src={image} alt={name}/>
     <ul>

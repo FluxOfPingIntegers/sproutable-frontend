@@ -16,7 +16,8 @@ const initialState = {
   selectedLocation: initialLocation,
   user: {
     username: ""
-  }
+  },
+  selectedZip: 20500 //trying to fix load bug
 }
 
 export function reducer(state=initialState, action){

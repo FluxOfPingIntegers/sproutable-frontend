@@ -1,13 +1,22 @@
 import { useEffect } from "react"
-import { getLocations } from '../redux/actionCreators'
+import { clearLocation, getLocations } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import LocationCard from "../components/LocationCard"
+import { useParams, useLocation } from 'react-router-dom'
 
 function LocationIndex({getLocations, locations}){
-  useEffect(getLocations, [getLocations])
+  const zip = useLocation().pathname.toString()
+  const zipSearch = parseInt(zip.substr(zip.length - 5))
 
-  return <div className="cards">
-      {locations.map(location => <LocationCard {...location} key={location.id}/>)}
+  useEffect(() => {
+  getLocations(zipSearch)
+  return clearLocation
+}, [getLocations, zipSearch, clearLocation])
+
+  console.log(locations)
+
+  return <div className="LocationIndex">
+    {locations.map(location => <LocationCard {...location} key={location.id}/>)}
   </div>
 }
 

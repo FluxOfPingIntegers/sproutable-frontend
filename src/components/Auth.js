@@ -1,26 +1,25 @@
 import { useState } from 'react'
 import { submitSignup, submitLogin } from '../redux/actionCreators'
 import { connect } from 'react-redux'
-import { useNavigate as useHistory } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 function Auth(props){
 
-  const [signup, setSignup] = useState(false)
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [zipCode, setZipCode] = useState(20500)
-  const history = useHistory()
+  const navigate = useNavigate()
 
-  const toggleSignup = () => setSignup(!signup)
+  const signup = (useLocation().pathname.toString() === "/users/signup")
 
   const handleSubmit = (e) => {
     e.preventDefault()
     signup ? props.submitSignup({ username, password, zip_code: zipCode }) : props.submitLogin({username, password})
-    history.pushState("/locations/zip-search/:zipcode")
+    navigate(`/locations/zip-search/${zipCode}`)
   }
 
   return (
-    <div class="Auth">
+    <div className="Auth">
       {signup ? <h1>Sign up!</h1> : <h1>Login!</h1>}
       <form onSubmit={handleSubmit}>
         <label>
@@ -37,7 +36,7 @@ function Auth(props){
         </label>
         <input type="submit" value="Submit" />
         </form>
-        <button onClick={toggleSignup}>Or... {signup ? "Login!" : "Signup!"}</button>
+
     </div>
   )
 }

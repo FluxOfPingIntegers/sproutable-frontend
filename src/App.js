@@ -5,7 +5,7 @@ import Nav from './components/Nav'
 import Auth from './components/Auth'
 import { Routes as Switch, Route } from "react-router-dom"
 import { connect } from 'react-redux'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { autoLogin } from './redux/actionCreators'
 
 function App({user, autoLogin}) {
@@ -15,14 +15,8 @@ function App({user, autoLogin}) {
   return (
     <div className="App">
       <Nav />
-      { user.username ?
-        <Switch>
-          <Route path="/locations/zip-search/:zipcode"><LocationIndex/></Route>
-          <Route path="/locations/:id"><LocationShow/></Route>
-          <Route exact path="/"><LocationIndex/></Route>
-        </Switch> : 
-        <Auth/>
-      }
+      <Auth />
+      <LocationIndex />
     </div>
   );
 }
@@ -30,3 +24,12 @@ function App({user, autoLogin}) {
 const mapStateToProps = (state) => ({user: state.user})
 
 export default connect(mapStateToProps, {autoLogin})(App);
+
+//  <Nav />
+//  { user.username ?
+//    <Switch>
+//      <Route path="/locations/zip-search/"><LocationIndex/></Route>
+//      <Route path="/locations/:id"><LocationShow/></Route>
+//    </Switch> : 
+//    <Auth />
+//  }

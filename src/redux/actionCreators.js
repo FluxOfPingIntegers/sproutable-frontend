@@ -1,14 +1,14 @@
-const url = "http://localhost:3000/"
+const url = "http://localhost:3000"
 
 export const getLocations = (zipcode) => {
-  return dispatch => fetch(`${url}locations/zip-search/${zipcode}`)
+  return dispatch => fetch(`${url}/locations/zip-search/${zipcode}`)
     .then(result => result.json())
     .then(locations => dispatch({type: "GET_LOCATIONS", payload: locations})
     )
 }
 
 export const getLocation = (id) => {
-  return dispatch => fetch(`${url}locations/${id}`)
+  return dispatch => fetch(`${url}/locations/${id}`)
     .then(response => response.json())
     .then(location => dispatch({type: "GET_LOCATION", payload: location})
   )
@@ -17,7 +17,7 @@ export const getLocation = (id) => {
 export const clearLocation = () => ({type: "CLEAR_LOCATION"})
 
 export const submitSignup = (user) => {
-  return dispatch => fetch(`${url}users`, {
+  return dispatch => fetch(`${url}/users`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export const submitSignup = (user) => {
 }
 
 export const submitLogin = (user) => {
-  return dispatch => fetch(`${url}sessions`, {
+  return dispatch => fetch(`${url}/sessions`, {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ export const submitLogin = (user) => {
 }
 
 export const autoLogin = () => {
-  return dispatch => fetch(`${url}me`, {
+  return dispatch => fetch(`${url}/me`, {
     headers: {
       'Authorization': localStorage.token
     }
