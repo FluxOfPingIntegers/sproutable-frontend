@@ -1,13 +1,15 @@
-import { useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getLocation, clearLocation} from '../redux/actionCreators'
 import { useEffect } from 'react'
 
-function LocationShow({id, name, image, description, hours, address, zipcode}){
-  const locationId = useParams().id
+function LocationShow(props){//{id, name, image, description, hours, address, zipcode}){
+  const {usda_id, name, image, description, hours, address, zipcode} = props.location
+  const location = useLocation().pathname.toString()
+  const locationId = parseInt(location.split("s/")[1])
 
   useEffect(() => {
-    getLocation(locationId)
+    props.getLocation(locationId)
     return clearLocation
   }, [getLocation, locationId, clearLocation])
 
@@ -23,11 +25,11 @@ function LocationShow({id, name, image, description, hours, address, zipcode}){
     <p>{description}</p>
   </div>
 
-  return id ? loadedPage() : loading()
+  return usda_id ? loadedPage() : loading()
 }
 
 const mapStateToProps = (state) => {
-  return {...state.selectedLocation}
+  return {location: state.selectedLocation}
 }
 
 export default connect(mapStateToProps, {getLocation, clearLocation})(LocationShow);

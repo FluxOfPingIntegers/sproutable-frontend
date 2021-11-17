@@ -17,7 +17,7 @@ const initialState = {
   user: {
     username: ""
   },
-  selectedZip: 20500 //trying to fix load bug
+  selectedZip: 20500
 }
 
 export function reducer(state=initialState, action){
@@ -25,7 +25,8 @@ export function reducer(state=initialState, action){
     case "GET_LOCATIONS":
       return {...state, locations: action.payload};
     case "GET_LOCATION":
-      return {...state, slectedLocation: action.payload};
+      console.log(`GET_LOCATION action=`, action)
+      return {...state, selectedLocation: action.payload};
     case "CLEAR_LOCATION":
       return {...state, selectedLocation: initialLocation};
     case "SET_USER":

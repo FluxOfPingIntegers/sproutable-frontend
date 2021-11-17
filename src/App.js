@@ -1,6 +1,7 @@
 import './App.css'
 import LocationIndex from './containers/LocationIndex'
 import LocationShow from './components/LocationShow'
+import ZipSearch from './components/ZipSearch'
 import Nav from './components/Nav'
 import Auth from './components/Auth'
 import { Routes as Switch, Route } from "react-router-dom"
@@ -11,12 +12,16 @@ import { autoLogin } from './redux/actionCreators'
 function App({user, autoLogin}) {
 
   useEffect(() => localStorage.token && autoLogin(), [autoLogin])
-
   return (
     <div className="App">
       <Nav />
-      <Auth />
-      <LocationIndex />
+      <Switch>
+        <Route path="/locations/zip-search/:zipcode" element={<LocationIndex />} />
+        <Route path="/locations/:zipcode" element={<LocationShow />} />
+        <Route path="/users/login" element={<Auth />} />
+        <Route path="/users/signup" element={<Auth />} />
+        <Route exact path="/locations/zip-search" element={<ZipSearch />} />
+      </Switch>
     </div>
   );
 }

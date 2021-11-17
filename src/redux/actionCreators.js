@@ -10,8 +10,7 @@ export const getLocations = (zipcode) => {
 export const getLocation = (id) => {
   return dispatch => fetch(`${url}/locations/${id}`)
     .then(response => response.json())
-    .then(location => dispatch({type: "GET_LOCATION", payload: location})
-  )
+    .then(location => dispatch({type: "GET_LOCATION", payload: location}))
 }
 
 export const clearLocation = () => ({type: "CLEAR_LOCATION"})
