@@ -23,6 +23,8 @@ function UserEdit(props) {
   }
   const editUserForm = () => {
     return (
+      <div className="edit-user-form">
+      <h1>Please Edit Your Information</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Username:
@@ -60,7 +62,9 @@ function UserEdit(props) {
           Venmo Username:
           <input type="text" name="venmoname" value={venmoname} onChange={(e) => setVenmoName(e.target.value)} /><br />
         </label>
+        <input type="submit" value="Submit" />
       </form>
+      </div>
     )
   }
   return (!!user.username ? editUserForm() : unauthorizedUser())

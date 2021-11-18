@@ -1,3 +1,4 @@
+
 const initialLocation = {
   usda_id: 0,
   yelp_id: "",
@@ -36,6 +37,7 @@ export function reducer(state=initialState, action){
     case "CLEAR_LOCATION":
       return {...state, selectedLocation: initialLocation};
     case "SET_USER":
+      console.log(action.payload)
       return {...state, selectedUser: action.payload}
     case "GET_USER":
       return {...state, selectedUser: action.payload}

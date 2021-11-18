@@ -16,7 +16,6 @@ function Auth(props){
   const handleSubmit = (e) => {
     e.preventDefault()
     signup ? props.submitSignup({ username, password, email, zipcode: zipCode }) : props.submitLogin({username, password})
-    props.setZipCode(zipCode)
     navigate(`/users/1`)
   }
 
