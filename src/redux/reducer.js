@@ -43,6 +43,8 @@ export function reducer(state=initialState, action){
       return {...state, user: action.payload};
     case "GET_USER":
       return {...state, selectedUser: action.payload}
+    case "CLEAR_USER":
+      return {...state, selectedUser: initialUser}
     default:
       return {...state}
   }
