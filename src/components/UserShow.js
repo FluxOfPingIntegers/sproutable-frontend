@@ -1,6 +1,13 @@
-
+import { useNavigate } from 'react-router-dom'
 
 export default function UserShow(props) {
+
+const navigate = useNavigate()
+
+const handleUserEditClick = (e) => {
+  e.preventDefault()
+  navigate('/users/1/edit')
+}
 
 const userInfo = () => {
   const {username, name, email, image, zipcode, venmoname} = props.user
@@ -15,6 +22,7 @@ const userInfo = () => {
           <li>Zip Code: {zipcode}</li>
           <li>Venmo Username: {venmoname}</li>
         </ul>
+        <button onClick={handleUserEditClick}>Edit Your Information</button>
       </>
     )
   }
