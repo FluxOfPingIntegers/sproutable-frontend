@@ -12,7 +12,7 @@ function Nav({username}){
 
   const userDisplay = (
     <>
-      Logged in as: <NavLink to="/users/:id">{username}</NavLink> |<> </>
+      Logged in as: <NavLink to="/users/1">{username}</NavLink> |<> </>
     </>
   )
 

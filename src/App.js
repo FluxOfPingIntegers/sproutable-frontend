@@ -4,7 +4,7 @@ import LocationShow from './components/LocationShow'
 import ZipSearch from './components/ZipSearch'
 import Nav from './components/Nav'
 import Auth from './components/Auth'
-import UserShow from './components/UserShow'
+import UserContainer from './containers/UserContainer'
 import { Routes as Switch, Route } from "react-router-dom"
 import { connect } from 'react-redux'
 import React, { useEffect } from 'react'
@@ -21,7 +21,7 @@ function App({autoLogin}) {
         <Route path="/locations/:zipcode" element={<LocationShow />} />
         <Route exact path="/users/login" element={<Auth />} />
         <Route exact path="/users/signup" element={<Auth />} />
-        <Route path="/users/:user_id" element={<UserShow />} />
+        <Route path="/users/:user_id" element={<UserContainer />} />
         <Route exact path="/locations/zip-search" element={<ZipSearch />} />
       </Switch>
     </div>

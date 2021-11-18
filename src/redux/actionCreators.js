@@ -56,6 +56,8 @@ export const getUser = () => {
   .then(user => dispatch({type: "GET_USER", payload: user}))
 }
 
+export const clearUser = () => ({type: "CLEAR_USER"})
+
 export const autoLogin = () => {
   return dispatch => fetch(`${url}/me`, {
     headers: {
