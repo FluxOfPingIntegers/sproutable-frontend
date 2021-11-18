@@ -4,12 +4,13 @@ import LocationShow from './components/LocationShow'
 import ZipSearch from './components/ZipSearch'
 import Nav from './components/Nav'
 import Auth from './components/Auth'
+import UserShow from './components/UserShow'
 import { Routes as Switch, Route } from "react-router-dom"
 import { connect } from 'react-redux'
 import React, { useEffect } from 'react'
 import { autoLogin } from './redux/actionCreators'
 
-function App({user, autoLogin}) {
+function App({autoLogin}) {
 
   useEffect(() => localStorage.token && autoLogin(), [autoLogin])
   return (
@@ -18,8 +19,9 @@ function App({user, autoLogin}) {
       <Switch>
         <Route path="/locations/zip-search/:zipcode" element={<LocationIndex />} />
         <Route path="/locations/:zipcode" element={<LocationShow />} />
-        <Route path="/users/login" element={<Auth />} />
-        <Route path="/users/signup" element={<Auth />} />
+        <Route exact path="/users/login" element={<Auth />} />
+        <Route exact path="/users/signup" element={<Auth />} />
+        <Route path="/users/:user_id" element={<UserShow />} />
         <Route exact path="/locations/zip-search" element={<ZipSearch />} />
       </Switch>
     </div>

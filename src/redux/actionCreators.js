@@ -45,6 +45,17 @@ export const submitLogin = (user) => {
   })
 }
 
+export const getUser = () => {
+  return dispatch => fetch(`${url}/users/1`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.token
+    }
+  })
+  .then(response => response.json())
+  .then(user => dispatch({type: "GET_USER", payload: user}))
+}
+
 export const autoLogin = () => {
   return dispatch => fetch(`${url}/me`, {
     headers: {

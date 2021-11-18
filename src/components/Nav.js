@@ -1,11 +1,29 @@
 import { NavLink } from 'react-router-dom';
+import {connect} from 'react-redux'
 
-function Nav(){
+function Nav({username}){
+
+  const authOptions = (
+    <>
+      <NavLink to="/users/login">Login</NavLink> |<> </>
+      <NavLink to="/users/signup">Signup</NavLink> |<> </>
+    </>
+  )
+
+  const userDisplay = (
+    <>
+      Logged in as: <NavLink to="/users/:id">{username}</NavLink> |<> </>
+    </>
+  )
+
   return <nav className="Nav">
-    <NavLink to="/users/login">Login</NavLink> |<> </>
-    <NavLink to="/users/signup">Signup</NavLink> |<> </>
+    {!!username ? userDisplay : authOptions}
     <NavLink to="/locations/zip-search">Search Markets By Zip</NavLink>
   </nav>
 }
 
-export default Nav;
+const mapStateToProps = (state) => {
+  return {username: state.user.username}
+}
+
+export default connect(mapStateToProps)(Nav);
