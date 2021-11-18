@@ -7,15 +7,31 @@ function Auth(props){
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [zipCode, setZipCode] = useState(20500)
+  const [email, setEmail] = useState("")
+  const [zipCode, setZipCode] = useState(null)
   const navigate = useNavigate()
 
   const signup = (useLocation().pathname.toString() === "/users/signup")
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    signup ? props.submitSignup({ username, password, zip_code: zipCode }) : props.submitLogin({username, password})
+    signup ? props.submitSignup({ username, password, email, zipcode: zipCode }) : props.submitLogin({username, password})
     navigate(`/locations/zip-search/${zipCode}`)
+  }
+
+  const signupForm = () => {
+    return (
+    <>
+    <label>
+      Email:
+      <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
+      </label>
+      <label>
+      Zip Code: 
+      <input type="number" name="zipCode" value={zipCode} onChange={(e) => setZipCode(e.target.value)} /><br />
+    </label>
+    </>
+    )
   }
 
   return (
@@ -26,14 +42,11 @@ function Auth(props){
           Username: 
           <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
         </label><br />
-        {signup && <label>
-          Zip Code: 
-          <input type="number" name="zipCode" value={zipCode} onChange={(e) => setZipCode(e.target.value)} /><br />
-        </label>}
         <label>
           Password: 
-          <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
-        </label>
+          <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </label><br />
+        {(signup ? signupForm() : <> </>)}
         <input type="submit" value="Submit" />
         </form>
 

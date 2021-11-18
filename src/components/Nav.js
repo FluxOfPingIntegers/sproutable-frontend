@@ -23,7 +23,7 @@ function Nav({username}){
 }
 
 const mapStateToProps = (state) => {
-  return {username: state.user.username}
+  return {username: state.selectedUser.username}
 }
 
 export default connect(mapStateToProps)(Nav);
