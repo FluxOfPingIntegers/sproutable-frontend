@@ -71,4 +71,17 @@ export const autoLogin = () => {
   })
 }
 
+export const submitUserUpdate = (user) => {
+  return dispatch => fetch(`${url}/users/1`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': localStorage.token,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(user)
+  })
+  .then(response => response.json())
+  .then(user => dispatch({type: "SET_USER", payload: user}))
+}
+
 export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}
