@@ -11,9 +11,19 @@ const initialLocation = {
   image: "",
 }
 
+const initialUser = {
+  username: "",
+  name: "",
+  email: "",
+  image: "",
+  zipcode: "",
+  venmoname: ""
+}
+
 const initialState = {
   locations: [],
   selectedLocation: initialLocation,
+  selectedUser: initialUser,
   user: {
     username: ""
   },
@@ -31,6 +41,8 @@ export function reducer(state=initialState, action){
       return {...state, selectedLocation: initialLocation};
     case "SET_USER":
       return {...state, user: action.payload};
+    case "GET_USER":
+      return {...state, selectedUser: action.payload}
     default:
       return {...state}
   }
