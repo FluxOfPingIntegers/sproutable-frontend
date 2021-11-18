@@ -46,6 +46,7 @@ export const submitLogin = (user) => {
 }
 
 export const getUser = () => {
+  console.log("getting user...")
   return dispatch => fetch(`${url}/users/1`, {
     headers: {
       'Content-Type': 'application/json',

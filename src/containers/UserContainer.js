@@ -4,13 +4,13 @@ import { connect } from 'react-redux'
 import UserShow from '../components/UserShow'
 
 function UserContainer({getUser, user}){
-
+console.log(user)
   useEffect(() => {
     getUser()
     return clearUser
 }, [getUser, clearUser])
 
-return <div classname="UserContainer">
+return <div className="UserContainer">
   <UserShow user={user} />
 </div>
 
