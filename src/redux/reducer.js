@@ -40,6 +40,7 @@ export function reducer(state=initialState, action){
     case "GET_USER":
       return {...state, selectedUser: action.payload}
     case "CLEAR_USER":
+      localStorage.clear()
       return {...state, selectedUser: initialUser, }
     case "SET_ZIPCODE":
       return {...state, selectedZipCode: action.payload}

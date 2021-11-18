@@ -3,8 +3,7 @@
 export default function UserShow(props) {
 
 const userInfo = () => {
-    const {username, name, email, image, zipcode, venmoname} = props.user
-
+  const {username, name, email, image, zipcode, venmoname} = props.user
     return (
       <>
         <h1>{username}</h1>
@@ -18,9 +17,7 @@ const userInfo = () => {
         </ul>
       </>
     )
-}
-
-
+  }
 
   return (
     <>
