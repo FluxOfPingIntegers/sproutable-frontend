@@ -36,13 +36,13 @@ export function reducer(state=initialState, action){
     case "CLEAR_LOCATION":
       return {...state, selectedLocation: initialLocation};
     case "SET_USER":
-      console.log("SET_USER", action.payload)
       return {...state, selectedUser: action.payload}
     case "GET_USER":
       return {...state, selectedUser: action.payload}
     case "CLEAR_USER":
-      localStorage.clear()
       return {...state, selectedUser: initialUser, }
+    case "SET_ZIPCODE":
+      return {...state, selectedZipCode: action.payload}
     default:
       return {...state}
   }

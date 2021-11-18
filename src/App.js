@@ -9,6 +9,7 @@ import { Routes as Switch, Route } from "react-router-dom"
 import { connect } from 'react-redux'
 import React, { useEffect } from 'react'
 import { autoLogin } from './redux/actionCreators'
+import Home from './components/Home'
 
 function App({autoLogin}) {
 
@@ -23,6 +24,7 @@ function App({autoLogin}) {
         <Route exact path="/users/signup" element={<Auth />} />
         <Route path="/users/:user_id" element={<UserContainer />} />
         <Route exact path="/locations/zip-search" element={<ZipSearch />} />
+        <Route exact path="/" element={<Home />} />
       </Switch>
     </div>
   );

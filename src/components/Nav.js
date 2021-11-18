@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
+import {clearUser} from '../redux/actionCreators'
 
-function Nav({username}){
+function Nav({username, clearUser}){
 
   const authOptions = (
     <>
@@ -10,9 +12,19 @@ function Nav({username}){
     </>
   )
 
+  const navigate = useNavigate()
+  
+  const handleLogoutClick = (e) => {
+    e.preventDefault()
+    localStorage.clear()
+    clearUser()
+    navigate('/')
+  }
+
   const userDisplay = (
     <>
       Logged in as: <NavLink to="/users/1">{username}</NavLink> |<> </>
+      <NavLink to="/" onClick={handleLogoutClick}>Logout</NavLink> | <> </>
     </>
   )
 
@@ -23,7 +35,10 @@ function Nav({username}){
 }
 
 const mapStateToProps = (state) => {
-  return {username: state.selectedUser.username}
+  return {
+    username: state.selectedUser.username,
+
+  }
 }
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, { clearUser })(Nav);

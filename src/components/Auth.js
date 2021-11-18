@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { submitSignup, submitLogin } from '../redux/actionCreators'
+import { submitSignup, submitLogin, setZipCode } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import { useNavigate, useLocation } from 'react-router-dom'
 
@@ -16,7 +16,8 @@ function Auth(props){
   const handleSubmit = (e) => {
     e.preventDefault()
     signup ? props.submitSignup({ username, password, email, zipcode: zipCode }) : props.submitLogin({username, password})
-    navigate(`/locations/zip-search/${zipCode}`)
+    props.setZipCode(zipCode)
+    navigate(`/users/1`)
   }
 
   const signupForm = () => {
@@ -54,4 +55,10 @@ function Auth(props){
   )
 }
 
-export default connect(null, { submitSignup, submitLogin })(Auth);
+const mapStateToProps = (state) => {
+  return {
+    zipcode: state.selectedZipCode
+  }
+}
+
+export default connect(mapStateToProps, { submitSignup, submitLogin, setZipCode })(Auth);

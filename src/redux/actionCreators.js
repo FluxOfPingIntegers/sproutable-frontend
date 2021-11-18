@@ -46,7 +46,6 @@ export const submitLogin = (user) => {
 }
 
 export const getUser = () => {
-  console.log("getting user...")
   return dispatch => fetch(`${url}/users/1`, {
     headers: {
       'Content-Type': 'application/json',
@@ -57,7 +56,7 @@ export const getUser = () => {
   .then(user => dispatch({type: "GET_USER", payload: user}))
 }
 
-export const clearUser = () => ({type: "CLEAR_USER"})
+export const clearUser = () => {return dispatch => dispatch({type: "CLEAR_USER"})}
 
 export const autoLogin = () => {
   return dispatch => fetch(`${url}/me`, {
@@ -71,3 +70,5 @@ export const autoLogin = () => {
     dispatch({type: "SET_USER", payload: result.user})
   })
 }
+
+export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}

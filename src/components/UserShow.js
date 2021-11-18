@@ -24,7 +24,7 @@ const userInfo = () => {
 
   return (
     <>
-    {!!props.user ? userInfo() : <p>Please Login to view information</p>}
+    {!!props.user.username ? userInfo() : <p>Please Login to view information</p>}
     </>
   )
 }
