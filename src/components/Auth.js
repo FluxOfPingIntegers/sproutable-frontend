@@ -13,10 +13,23 @@ function Auth(props){
 
   const signup = (useLocation().pathname.toString() === "/users/signup")
 
+  const isFieldValid = (field) => {
+    if (field.length < 3 || field === "invalid" || field === "Invalid" || field[0] === " " || field[field.length -1] === " "){
+      return false
+    } else {
+      return true
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    signup ? props.submitSignup({ username, password, email, zipcode: zipCode }) : props.submitLogin({username, password})
-    navigate(`/users/1`)
+    if (isFieldValid(username) && isFieldValid(password)) {
+      signup ? props.submitSignup({ username, password, email, zipcode: zipCode }) : props.submitLogin({username, password})
+      navigate(`/users/1`)
+    } else {
+      setUsername("")
+      setPassword("")
+    }
   }
 
   const signupForm = () => {
