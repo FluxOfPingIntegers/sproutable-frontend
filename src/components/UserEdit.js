@@ -18,9 +18,32 @@ function UserEdit(props) {
   const unauthorizedUser = () => {return <p>Access Denied, please log in to edit an account</p>}
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.submitUserUpdate({username, name, email, password, password_confirmation: passwordConfirmation, image, zipcode, venmoname})
+    let userParams = updateParams({username, name, email, password, passwordConfirmation, image, zipcode, venmoname})
+    props.submitUserUpdate(userParams)
     navigate(`/users/1`)
   }
+
+  const isFieldValid = (field) => {
+    if (field.length < 3 || field === "invalid" || field === "Invalid" || field[0] === " " || field[field.length -1] === " "){
+      return false
+    } else {
+      return true
+    }
+  }
+
+  const updateParams = ({username, name, email, password, passwordConfirmation, image, zipcode, venmoname}) => {
+    let user = {}
+    user = isFieldValid(username) ? Object.assign(user, {username: username}) : user
+    user = isFieldValid(name) ? Object.assign(user, {name: name}) : user
+    user = isFieldValid(email) ? Object.assign(user, {email: email}) : user
+    user = isFieldValid(password) ? Object.assign(user, {password: password}) : user
+    user = isFieldValid(passwordConfirmation) ? Object.assign(user, {password_confirmation: passwordConfirmation}) : user
+    user = isFieldValid(image) ? Object.assign(user, {image: image}) : user
+    user = isFieldValid(zipcode) ? Object.assign(user, {zipcode: zipcode}) : user
+    user = isFieldValid(venmoname) ? Object.assign(user, {venmoname: venmoname}) : user
+    return user
+  }
+
   const editUserForm = () => {
     return (
       <div className="edit-user-form">
