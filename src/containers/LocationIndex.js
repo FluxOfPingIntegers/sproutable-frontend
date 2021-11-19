@@ -7,7 +7,6 @@ import { useLocation, useParams } from 'react-router-dom'
 function LocationIndex({getLocations, locations}){
   const zip = useLocation().pathname.toString()
   const zipSearch = zip.substr(zip.length - 5)
-  console.log(zipSearch)
 
   useEffect(() => {
   getLocations(zipSearch)
