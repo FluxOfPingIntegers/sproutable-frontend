@@ -4,6 +4,7 @@ export const getLocations = (zipcode) => {
   return dispatch => fetch(`${url}/locations/zip-search/${zipcode}`)
     .then(result => result.json())
     .then(locations => dispatch({type: "GET_LOCATIONS", payload: locations})
+    .catch(error => console.log(error))
     )
 }
 
@@ -11,6 +12,7 @@ export const getLocation = (id) => {
   return dispatch => fetch(`${url}/locations/${id}`)
     .then(response => response.json())
     .then(location => dispatch({type: "GET_LOCATION", payload: location}))
+    .catch(error => console.log(error))
 }
 
 export const clearLocation = () => ({type: "CLEAR_LOCATION"})
@@ -25,8 +27,10 @@ export const submitSignup = (user) => {
   })
   .then(response => response.json())
   .then(result => {
-    localStorage.token = result.token
-    dispatch({type: "SET_USER", payload: result.user})
+    if (!!result.user && !!result.token) {
+      localStorage.token = result.token
+      dispatch({type: "SET_USER", payload: result.user})
+    } else {window.alert("Invalid Entry")}
   })
 }
 
@@ -40,8 +44,10 @@ export const submitLogin = (user) => {
   })
   .then(response => response.json())
   .then(result => {
-    localStorage.token = result.token
-    dispatch({type: "SET_USER", payload: result.user})
+    if (!!result.user && !!result.token) {
+      localStorage.token = result.token
+      dispatch({type: "SET_USER", payload: result.user})
+    } else {window.alert("Invalid Entry")}
   })
 }
 
@@ -54,6 +60,7 @@ export const getUser = () => {
   })
   .then(response => response.json())
   .then(user => dispatch({type: "GET_USER", payload: user}))
+  .catch(error => console.log(error))
 }
 
 export const clearUser = () => {return dispatch => dispatch({type: "CLEAR_USER"})}
@@ -66,9 +73,12 @@ export const autoLogin = () => {
   })
   .then(response => response.json())
   .then(result => {
-    localStorage.token = result.token
-    dispatch({type: "SET_USER", payload: result["user"]})
+    if (!!result.user && !!result.token) {
+      localStorage.token = result.token
+      dispatch({type: "SET_USER", payload: result.user})
+    } else {console.log("Invalid autologin")}
   })
+  .catch(error => console.log(error))
 }
 
 export const submitUserUpdate = (user) => {
@@ -81,8 +91,8 @@ export const submitUserUpdate = (user) => {
     body: JSON.stringify(user)
   })
   .then(response => response.json())
-  .then(data => console.log("submitUserUpdate response.json()=", data))
   .then(result => dispatch({type: "SET_USER", payload: result["user"]}))
+  .catch(error => console.log(error))
 }
 
 export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}
