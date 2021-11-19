@@ -37,7 +37,7 @@ export function reducer(state=initialState, action){
     case "CLEAR_LOCATION":
       return {...state, selectedLocation: initialLocation};
     case "SET_USER":
-      console.log(action.payload)
+      console.log("SET_USER action.payload=", action.payload)
       return {...state, selectedUser: action.payload}
     case "GET_USER":
       return {...state, selectedUser: action.payload}

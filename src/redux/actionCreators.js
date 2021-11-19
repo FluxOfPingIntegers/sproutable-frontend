@@ -67,7 +67,7 @@ export const autoLogin = () => {
   .then(response => response.json())
   .then(result => {
     localStorage.token = result.token
-    dispatch({type: "SET_USER", payload: result.user})
+    dispatch({type: "SET_USER", payload: result["user"]})
   })
 }
 
@@ -81,7 +81,8 @@ export const submitUserUpdate = (user) => {
     body: JSON.stringify(user)
   })
   .then(response => response.json())
-  .then(user => dispatch({type: "SET_USER", payload: user}))
+  .then(data => console.log("submitUserUpdate response.json()=", data))
+  .then(result => dispatch({type: "SET_USER", payload: result["user"]}))
 }
 
 export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}

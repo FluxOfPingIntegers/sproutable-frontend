@@ -4,7 +4,7 @@ import { submitUserUpdate } from '../redux/actionCreators'
 import { useNavigate } from 'react-router-dom'
 
 function UserEdit(props) {
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const user = props.user
   const [username, setUsername] = useState(user.username)
   const [name, setName] = useState(user.name)
