@@ -8,7 +8,7 @@ function Auth(props){
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [email, setEmail] = useState("")
-  const [zipCode, setZipCode] = useState(null)
+  const [zipCode, setZipCode] = useState("")
   const navigate = useNavigate()
 
   const signup = (useLocation().pathname.toString() === "/users/signup")

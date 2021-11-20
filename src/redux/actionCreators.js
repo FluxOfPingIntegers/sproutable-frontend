@@ -17,7 +17,7 @@ export const getLocation = (id) => {
 
 export const clearLocation = () => ({type: "CLEAR_LOCATION"})
 
-export const submitSignup = (user) => {
+export const submitSignup = ({user}) => {
   return dispatch => fetch(`${url}/users`, {
     method: 'POST',
     headers: {
