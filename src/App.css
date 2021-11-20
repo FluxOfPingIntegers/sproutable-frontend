@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+  background-color: rgba(0, 180, 24, 0.5);
+  height: 100vh;
+}
+
+.Nav {
+  background-color: rgba(255, 169, 41, 0.842);
+  font-weight: bold;
+}
+
+.Home img {
+  width: 50%;
+  height: 50%;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .App-logo {
