@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { clearLocation, getLocations } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import LocationCard from "../components/LocationCard"
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 function LocationIndex({getLocations, locations}){
   const zip = useLocation().pathname.toString()

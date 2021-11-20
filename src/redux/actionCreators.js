@@ -91,7 +91,9 @@ export const submitUserUpdate = (user) => {
     body: JSON.stringify(user)
   })
   .then(response => response.json())
-  .then(result => dispatch({type: "SET_USER", payload: result["user"]}))
+  .then(result => {
+    !!result["user"] ? dispatch({type: "SET_USER", payload: result["user"]}) : dispatch({type: "SET_USER", payload: result})
+  })
   .catch(error => console.log(error))
 }
 
