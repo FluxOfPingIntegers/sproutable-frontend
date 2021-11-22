@@ -7,6 +7,7 @@ function Auth(props){
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [passwordConfirmation, setPasswordConfirmation] = useState("")
   const [email, setEmail] = useState("")
   const [zipCode, setZipCode] = useState("")
   const navigate = useNavigate()
@@ -24,7 +25,11 @@ function Auth(props){
   const handleSubmit = (e) => {
     e.preventDefault()
     if (isFieldValid(username) && isFieldValid(password)) {
-      signup ? props.submitSignup({ username, password, email, zipcode: zipCode }) : props.submitLogin({username, password})
+      signup ? props.submitSignup({
+         username, 
+         password, 
+         password_confirmation: passwordConfirmation, 
+         email, zipcode: zipCode }) : props.submitLogin({username, password})
       navigate(`/users/1`)
     } else {
       setUsername("")
@@ -36,10 +41,17 @@ function Auth(props){
     return (
     <>
     <label>
+      Password Confirmation:
+      <input type="password" 
+        name="password_confirmation" 
+        value={passwordConfirmation} 
+        onChange={(e) => setPasswordConfirmation(e.target.value)} /><br />
+    </label>
+    <label>
       Email:
       <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
-      </label>
-      <label>
+    </label>
+    <label>
       Zip Code: 
       <input type="number" name="zipCode" value={zipCode} onChange={(e) => setZipCode(e.target.value)} /><br />
     </label>
