@@ -4,7 +4,6 @@ export const getLocations = (zipcode) => {
   return dispatch => fetch(`${url}/locations/zip-search/${zipcode}`)
     .then(result => result.json())
     .then(locations => dispatch({type: "GET_LOCATIONS", payload: locations})
-    .catch(error => console.log(error))
     )
 }
 
@@ -12,12 +11,11 @@ export const getLocation = (id) => {
   return dispatch => fetch(`${url}/locations/${id}`)
     .then(response => response.json())
     .then(location => dispatch({type: "GET_LOCATION", payload: location}))
-    .catch(error => console.log(error))
 }
 
 export const clearLocation = () => ({type: "CLEAR_LOCATION"})
 
-export const submitSignup = ({user}) => {
+export const submitSignup = (user) => {
   return dispatch => fetch(`${url}/users`, {
     method: 'POST',
     headers: {
