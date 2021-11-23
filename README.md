@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+Sproutable A Place for Sprout Tables
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This web app searches locations via zip code from a Rails backend that utilizes the USDA National Farmers Market Directory API (https://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html) and displays pages with pictures pulled from Imsea the image Api (https://imsea.herokuapp.com/). along with information about products provided and hours of operation.
 
-## Available Scripts
+Getting started
 
-In the project directory, you can run:
+Step 1: Sign in or create a user account
 
-### `yarn start`
+Step 2: Edit your information, you could include a url of an image for your profile
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Step 3: Search a zip code to view a list of Farmers Markets in that area
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Step 4: Click on the Farmers Market to its information
 
-### `yarn test`
+Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+First: You will need developer software, I used Visual Studio Code. Depending on your operating system you should follow these instructions: Windows: https://code.visualstudio.com/docs/setup/windows macOS: https://code.visualstudio.com/docs/setup/mac Linux: https://code.visualstudio.com/docs/setup/linux
 
-### `yarn build`
+Second: You will need to clone the repo for this software and pull it up in VS Code. In your terminal please navigate to the folder you would like the files for this software to be and type "git clone git@github.com:FluxOfPingIntegers/congo_client.git" then "cd congo_client" then "code .".
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Third: You will need to clone/run the repo for the backend for this software. Instructions can be found in the README here:
+https://github.com/FluxOfPingIntegers/sproutable-backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Fourth: After starting up the associated backend Rails server, go back within this repo.  Inside VS code within the main folder type "npm install" and then one that finishes its process type "npm start" the app should then boot within your browser (chrome in my case).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Finally you are ready to proceed to the Getting Started section of this README
 
-### `yarn eject`
+Contribute This is a project I am building for school (and for fun) and I am not currently looking for contributors. This may change in the future though!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Author
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ryan Schleck – Flatiron student Acknowledgments
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+• The very supportive slack community at Flatiron Tech/Gems used • Javascript • Ruby On Rails (backend)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT License - Copyright 2021 Anyone Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
