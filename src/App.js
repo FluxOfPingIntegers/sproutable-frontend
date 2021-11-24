@@ -20,7 +20,7 @@ function App({autoLogin}) {
       <Nav />
       <Switch>
         <Route path="/locations/zip-search/:zipcode" element={<LocationIndex />} />
-        <Route path="/locations/:zipcode" element={<LocationShow />} />
+        <Route path="/locations/:zipcode/events" element={<LocationShow />} />
         <Route exact path="/users/login" element={<Auth />} />
         <Route exact path="/users/signup" element={<Auth />} />
         <Route exact path="/users/1/edit" element={<UserEdit />} />

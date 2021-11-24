@@ -25,11 +25,16 @@ function LocationShow(props){//{id, name, image, description, hours, address, zi
     <p>{description}</p>
   </div>
 
+  console.log(props.events)
+
   return usda_id ? loadedPage() : loading()
 }
 
 const mapStateToProps = (state) => {
-  return {location: state.selectedLocation}
+  return {
+    location: state.selectedLocation.location,
+    events: state.selectedLocation.events
+  }
 }
 
 export default connect(mapStateToProps, {getLocation, clearLocation})(LocationShow);
