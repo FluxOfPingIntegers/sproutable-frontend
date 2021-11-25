@@ -1,12 +1,11 @@
 import { NavLink } from 'react-router-dom';
 
-function EventCard(props) {
-  console.log(props)
-  const url = `/events/${props.id}`
+function EventCard({location_id, id, date, hours}) {
+  const url = `/locations/${location_id}/events/${id}`
   return <>
     <ul>
-      <li>Date: {props.date}</li>
-      <li>Time: {props.hours}</li>
+      <li>Date: {date}</li>
+      <li>Time: {hours}</li>
       <li><NavLink to={url}>See Event Details</NavLink></li>
     </ul>
   </>

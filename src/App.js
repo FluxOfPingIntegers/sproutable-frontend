@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import React, { useEffect } from 'react'
 import { autoLogin } from './redux/actionCreators'
 import Home from './components/Home'
+import EventShow from './components/EventShow'
 
 function App({autoLogin}) {
 
@@ -20,7 +21,8 @@ function App({autoLogin}) {
       <Nav />
       <Switch>
         <Route path="/locations/zip-search/:zipcode" element={<LocationIndex />} />
-        <Route path="/locations/:zipcode/events" element={<LocationShow />} />
+        <Route path="/locations/:id/events" element={<LocationShow />} />
+        <Route path="/locations/:location_id/events/:id" element={<EventShow />} />
         <Route exact path="/users/login" element={<Auth />} />
         <Route exact path="/users/signup" element={<Auth />} />
         <Route exact path="/users/1/edit" element={<UserEdit />} />
