@@ -63,6 +63,14 @@ export const getUser = () => {
 
 export const clearUser = () => {return dispatch => dispatch({type: "CLEAR_USER"})}
 
+export const getEvent = ({locationId, eventId}) => {
+  return dispatch => fetch(`${url}/locations/${locationId}/events/${eventId}`)
+    .then(response => response.json())
+    .then(event => dispatch({type: "SET_EVENT", payload: event}))
+}
+
+export const clearEvent = () => {return dispatch => dispatch({type: "CLEAR_EVENT"})}
+
 export const autoLogin = () => {
   return dispatch => fetch(`${url}/me`, {
     headers: {
