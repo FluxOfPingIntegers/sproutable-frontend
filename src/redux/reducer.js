@@ -15,6 +15,11 @@ const initialLocation = {
   events: []
 }
 
+const initialEvent = Object.assign(initialLocation.location, {
+  date: "",
+  vendors: []
+})
+
 const initialUser = {
   username: "",
   name: "",
@@ -28,7 +33,8 @@ const initialState = {
   locations: [],
   selectedLocation: initialLocation,
   selectedUser: initialUser,
-  selectedZip: 20500
+  selectedZip: 20500,
+  selectedEvent: initialEvent
 }
 
 export function reducer(state=initialState, action){
@@ -40,7 +46,6 @@ export function reducer(state=initialState, action){
     case "CLEAR_LOCATION":
       return {...state, selectedLocation: initialLocation};
     case "SET_USER":
-      console.log("SET_USER action.payload=", action.payload)
       return {...state, selectedUser: action.payload}
     case "GET_USER":
       return {...state, selectedUser: action.payload}
@@ -49,6 +54,11 @@ export function reducer(state=initialState, action){
       return {...state, selectedUser: initialUser, }
     case "SET_ZIPCODE":
       return {...state, selectedZipCode: action.payload}
+    case "SET_EVENT":
+      console.log("SET_EVENT action.payload=", action.payload)
+      return {...state, selectedEvent: action.payload}
+    case "CLEAR_EVENT":
+      return {...state, selectedEvent: initialEvent}
     default:
       return {...state}
   }
