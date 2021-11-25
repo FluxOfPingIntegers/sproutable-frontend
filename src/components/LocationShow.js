@@ -2,8 +2,9 @@ import { useLocation } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getLocation, clearLocation} from '../redux/actionCreators'
 import { useEffect } from 'react'
+import EventIndex from '../containers/EventIndex'
 
-function LocationShow(props){//{id, name, image, description, hours, address, zipcode}){
+function LocationShow(props) {
   const {usda_id, name, image, description, hours, address, zipcode} = props.location
   const location = useLocation().pathname.toString()
   const locationId = parseInt(location.split("s/")[1])
@@ -23,9 +24,8 @@ function LocationShow(props){//{id, name, image, description, hours, address, zi
       <li>Hours: {hours}</li>
     </ul>
     <p>{description}</p>
+    <EventIndex />
   </div>
-
-  console.log(props.events)
 
   return usda_id ? loadedPage() : loading()
 }
