@@ -17,7 +17,8 @@ const initialLocation = {
 
 const initialEvent = Object.assign(initialLocation.location, {
   date: "",
-  vendors: []
+  vendors: [],
+  items: []
 })
 
 const initialUser = {
