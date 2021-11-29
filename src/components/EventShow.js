@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {getEvent, clearEvent} from '../redux/actionCreators'
 
 function EventShow(props) {
-  const {usda_id, name, image, description, hours, address, zipcode, date, vendors, items} = props.event
+  const {name, hours, address, zipcode, date, vendors, items} = props.event
   const eventPath = useLocation().pathname.toString()
   const eventPathArray = eventPath.split("/")
   const eventId = parseInt(eventPathArray[eventPathArray.length - 1])
@@ -13,7 +13,7 @@ function EventShow(props) {
   useEffect(() => {
     props.getEvent({eventId: eventId, locationId: locationId})
     return clearEvent
-  }, [getEvent, eventId, locationId, clearEvent])
+  }, [eventId, locationId, props, clearEvent])
 
  const eventInfo = () => {
    <>
@@ -29,7 +29,7 @@ function EventShow(props) {
  }
 
  const isEventVacant = () => {
-   return (vendors.length == 0 || items.length == 0) ? true : false
+   return (vendors.length === 0 || items.length === 0) ? true : false
  }
 
   return <div className="EventShow">

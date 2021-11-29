@@ -26,5 +26,6 @@ export const initialUser = {
   email: "",
   image: "",
   zipcode: "",
-  venmoname: ""
+  venmoname: "",
+  vendor: false
 }

@@ -34,15 +34,6 @@ function App({autoLogin}) {
   );
 }
 
-const mapStateToProps = (state) => ({user: state.user})
+const mapStateToProps = (state) => ({user: state.selectedUser})
 
 export default connect(mapStateToProps, {autoLogin})(App);
-
-//  <Nav />
-//  { user.username ?
-//    <Switch>
-//      <Route path="/locations/zip-search/"><LocationIndex/></Route>
-//      <Route path="/locations/:id"><LocationShow/></Route>
-//    </Switch> : 
-//    <Auth />
-//  }

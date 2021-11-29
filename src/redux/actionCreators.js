@@ -27,7 +27,7 @@ export const submitSignup = (user) => {
   .then(result => {
     if (!!result.user && !!result.token) {
       localStorage.token = result.token
-      dispatch({type: "SET_USER", payload: result.user})
+      dispatch({type: "SET_USER", payload: Object.assign(result.user, result.vendor)})
     } else {window.alert("Invalid Entry")}
   })
 }
@@ -44,7 +44,7 @@ export const submitLogin = (user) => {
   .then(result => {
     if (!!result.user && !!result.token) {
       localStorage.token = result.token
-      dispatch({type: "SET_USER", payload: result.user})
+      dispatch({type: "SET_USER", payload: Object.assign(result.user, result.vendor)})
     } else {window.alert("Invalid Entry")}
   })
 }
@@ -81,8 +81,8 @@ export const autoLogin = () => {
   .then(result => {
     if (!!result.user && !!result.token) {
       localStorage.token = result.token
-      dispatch({type: "SET_USER", payload: result.user})
-    } else {console.log("Invalid autologin")}
+      dispatch({type: "SET_USER", payload: Object.assign(result.user, {vendor: result.vendor})})
+    } else {console.log("Invalid autologin result=", result)}
   })
   .catch(error => console.log(error))
 }

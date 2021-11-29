@@ -12,7 +12,7 @@ function LocationShow(props) {
   useEffect(() => {
     props.getLocation(locationId)
     return clearLocation
-  }, [getLocation, locationId, clearLocation])
+  }, [locationId, props, clearLocation])
 
   const loading = () => <p>...Loading...</p>
 
