@@ -18,7 +18,7 @@ const newVendor = () => {
 
 const vendorPortal = (vendor) => {
   return <>
-  <h3>Currently {vendor.name} Is Associated With This Account</h3>
+  <h3>Currently {vendor.username} Is Associated With This Account</h3>
   <p>Click <a href={`/vendors/${vendor.id}`}>here</a> to access your vendor portal</p>
   </>
 }
@@ -26,7 +26,6 @@ const vendorPortal = (vendor) => {
 const userInfo = () => {
   const {username, name, email, image, zipcode, venmoname, vendor} = props.user
   const vendorDisplay = (!!vendor ? vendorPortal(vendor) : newVendor())
-  console.log(!!vendor)
     return (
       <div className="UserShow">
         <h1>{username}</h1>

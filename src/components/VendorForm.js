@@ -90,7 +90,7 @@ function VendorForm({vendor, submitVendorSignup, submitVendorUpdate}) {
 
 const mapStateToProps = (state) => {
   return {
-    vendor: state.user.vendor
+    vendor: state.selectedUser.vendor
   }
 }
 
