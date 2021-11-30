@@ -12,7 +12,8 @@ import React, { useEffect } from 'react'
 import { autoLogin } from './redux/actionCreators'
 import Home from './components/Home'
 import EventShow from './components/EventShow'
-import VendorNew from './components/VendorForm'
+import VendorForm from './components/VendorForm'
+import VendorContainer from './containers/VendorContainer'
 
 function App({autoLogin, user}) {
 
@@ -30,7 +31,8 @@ function App({autoLogin, user}) {
         <Route path="/users/:user_id" element={<UserContainer />} />
         <Route exact path="/locations/zip-search" element={<ZipSearch />} />
         <Route exact path="/vendors/new" element={<VendorForm vendor={user.vendor} />} />
-        <Route exact path="/vendors/1/edit" element={<VendorForm vendor={user.vendor} />} />
+        <Route exact path="/vendors/:vendor_id/edit" element={<VendorForm />} />
+        <Route exact path="/vendors/:vendor_id" element={<VendorContainer />} />
         <Route exact path="/" element={<Home />} />
       </Switch>
     </div>

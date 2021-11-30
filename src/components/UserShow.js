@@ -19,7 +19,7 @@ const newVendor = () => {
 const vendorPortal = (vendor) => {
   return <>
   <h3>Currently {vendor.name} Is Associated With This Account</h3>
-  <p>Click <a href={`/vendors/1`}>here</a> to access your vendor portal</p>
+  <p>Click <a href={`/vendors/${vendor.id}`}>here</a> to access your vendor portal</p>
   </>
 }
 

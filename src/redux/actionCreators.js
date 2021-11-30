@@ -63,6 +63,42 @@ export const getUser = () => {
 
 export const clearUser = () => {return dispatch => dispatch({type: "CLEAR_USER"})}
 
+export const submitVendorSignup = (vendor) => {
+  return dispatch => fetch(`${url}/vendors`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.token
+    },
+    body: JSON.stringify(vendor)
+  })
+  .then(response => response.json())
+  .then(result => dispatch({type: "SET_VENDOR", payload: result}))
+  .catch(error => console.log(error))
+}
+
+export const submitVendorUpdate = (vendor) => {
+  return dispatch => fetch(`${url}/vendors`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.token
+    },
+    body: JSON.stringify(vendor)
+  })
+  .then(response => response.json())
+  .then(result => dispatch({type: "SET_VENDOR", payload: result}))
+  .catch(error => console.log(error))
+}
+
+export const getVendor = (eventId) => {
+  return dispatch => fetch(`${url}/vendors/${eventId}`)
+    .then(response=>response.json())
+    .then(result => dispatch({type: "GET_VENDOR", payload: result}))
+}
+
+export const clearVendor = () => {return dispatch => dispatch({type: "CLEAR_VENDOR"})}
+
 export const getEvent = ({locationId, eventId}) => {
   return dispatch => fetch(`${url}/locations/${locationId}/events/${eventId}`)
     .then(response => response.json())

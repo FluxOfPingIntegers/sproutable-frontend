@@ -29,3 +29,7 @@ export const initialUser = {
   venmoname: "",
   vendor: false
 }
+
+export const initialVendor = Object.assign(initialUser, {
+  website: ""
+})
