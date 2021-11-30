@@ -20,6 +20,17 @@ function VendorForm({vendor, submitVendorSignup, submitVendorUpdate}) {
       }
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    let vendorParams = validVendorParams({username, email, zipCode, venmoname})
+    if (signup && !vendor) {
+      submitVendorSignup(vendorParams)
+    } else {
+      submitVendorUpdate(vendorParams)
+    }
+    navigate(`/vendors/1`)
+  }
+
   const validVendorParams = ({username, email, zipCode, venmoname}) => {
     let vendor = {}
     vendor = isFieldValid(username) ? Object.assign(vendor, {username: username}) : vendor
