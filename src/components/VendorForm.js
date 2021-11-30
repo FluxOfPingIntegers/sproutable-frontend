@@ -50,6 +50,8 @@ function VendorForm({vendor, submitVendorSignup, submitVendorUpdate}) {
       setEmail(vendor.email)
       setZipCode(vendor.zipcode)
       setVenmoName(vendor.venmoname)
+      setImage(vendor.image)
+      setWebsite(vendor.website)
       return <h3>Welcome {vendor.username} Please Edit Your Information:</h3>
     } else {return <h3>Complete The Form Below To Create A New Vendor Account:</h3>}
   }
