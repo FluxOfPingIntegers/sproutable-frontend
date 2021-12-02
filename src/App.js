@@ -8,7 +8,7 @@ import UserEdit from './components/UserEdit'
 import UserContainer from './containers/UserContainer'
 import { Routes as Switch, Route } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect/*, useState*/ } from 'react'
 import { autoLogin } from './redux/actionCreators'
 import Home from './components/Home'
 import EventShow from './components/EventShow'
@@ -18,8 +18,8 @@ import VendorContainer from './containers/VendorContainer'
 function App() {
   const dispatch = useDispatch()
   const user = useSelector((state) => (state.selectedUser))
-  const [value, setValue] = useState('')
-  useEffect(() => localStorage.token && dispatch(autoLogin()), [autoLogin, value])
+  //const [value, setValue] = useState('')
+  useEffect(() => localStorage.token && dispatch(autoLogin()), [autoLogin/*, value*/])
   return (
     <div className="App">
       <Nav />
@@ -33,14 +33,12 @@ function App() {
         <Route path="/users/:user_id" element={<UserContainer />} />
         <Route exact path="/locations/zip-search" element={<ZipSearch />} />
         <Route exact path="/vendors/new" element={<VendorForm vendor={user.vendor} />} />
-        <Route exact path="/vendors/:vendor_id/edit" element={<VendorForm />} />
+        <Route exact path="/vendors/:vendor_id/edit" element={<VendorForm vendor={user.vendor}/>} />
         <Route exact path="/vendors/:vendor_id" element={<VendorContainer />} />
         <Route exact path="/" element={<Home />} />
       </Switch>
     </div>
   );
 }
-
-const mapStateToProps = (state) => ({user: state.selectedUser})
 
 export default App;

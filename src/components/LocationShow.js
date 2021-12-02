@@ -1,20 +1,22 @@
 import { useLocation } from 'react-router-dom'
-import {connect} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+//import {connect} from 'react-redux'
 import {getLocation, clearLocation} from '../redux/actionCreators'
-import { useEffect, useState } from 'react'
+import { useEffect/*, useState*/ } from 'react'
 import EventIndex from '../containers/EventIndex'
 
-function LocationShow(props) {
-  console.log(props.location)
-  const {usda_id, name, image, description, hours, address, zipcode} = props.location
-  const location = useLocation().pathname.toString()
-  const locationId = parseInt(location.split("s/")[1])
-  const [value, setValue] = useState("")
+function LocationShow(/*props*/) {
+  const dispatch = useDispatch()
+  const location = useSelector((state) => (state.selectedLocation.location))
+  const {usda_id, name, image, description, hours, address, zipcode} = /*props.*/location
+  const locationPath = useLocation().pathname.toString()
+  const locationId = parseInt(locationPath.split("s/")[1])
+  //const [value, setValue] = useState('')
 
   useEffect(() => {
-    props.getLocation(locationId)
+    dispatch(getLocation(locationId))
     return clearLocation
-  }, [locationId, value, clearLocation])
+  }, [getLocation, locationId, clearLocation/*, value*/])
 
   const loading = () => <p>...Loading...</p>
 
@@ -32,11 +34,13 @@ function LocationShow(props) {
   return usda_id ? loadedPage() : loading()
 }
 
-const mapStateToProps = (state) => {
+export default LocationShow;
+
+/*const mapStateToProps = (state) => {
   return {
     location: state.selectedLocation.location,
     events: state.selectedLocation.events
   }
 }
 
-export default connect(mapStateToProps, {getLocation, clearLocation})(LocationShow);
+export default connect(mapStateToProps, {getLocation, clearLocation})(LocationShow);*/

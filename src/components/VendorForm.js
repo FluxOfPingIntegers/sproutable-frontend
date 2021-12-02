@@ -1,15 +1,36 @@
 import { useState } from 'react'
 import { submitVendorSignup, submitVendorUpdate } from '../redux/actionCreators'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate, useLocation } from 'react-router-dom'
 
-function VendorForm({vendor, submitVendorSignup, submitVendorUpdate}) {
-  const [username, setUsername] = useState("")
-  const [email, setEmail] = useState("")
-  const [zipCode, setZipCode] = useState("")
-  const [venmoname, setVenmoName] = useState("")
-  const [image, setImage] = useState("")
-  const [website, setWebsite] = useState("")
+function VendorForm({vendor}) {
+
+  const extractVendorProps = (vendorProp) => {
+    switch (vendorProp) {
+      case 'username':
+        return vendor.username
+      case 'email':
+        return vendor.email
+      case 'zipCode':
+        return vendor.zipcode
+      case 'venmoname':
+        return vendor.venmoname
+      case 'image':
+        return vendor.image
+      case 'website':
+        return vendor.website
+      default:
+        return "";
+    }
+  }
+
+  const [username, setUsername] = useState((!!vendor ? extractVendorProps('username') : ""))
+  const [email, setEmail] = useState((!!vendor ? extractVendorProps('email') : ""))
+  const [zipCode, setZipCode] = useState((!!vendor ? extractVendorProps('zipCode') : ""))
+  const [venmoname, setVenmoName] = useState((!!vendor ? extractVendorProps('venmoname') : ""))
+  const [image, setImage] = useState((!!vendor ? extractVendorProps('image') : ""))
+  const [website, setWebsite] = useState((!!vendor ? extractVendorProps('website') : ""))
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const signup = (useLocation().pathname.toString() === "/vendors/new")
@@ -26,9 +47,9 @@ function VendorForm({vendor, submitVendorSignup, submitVendorUpdate}) {
     e.preventDefault()
     let vendorParams = validVendorParams({username, email, zipCode, venmoname, image, website})
     if (signup && !vendor) {
-      submitVendorSignup(vendorParams)
+      dispatch(submitVendorSignup(vendorParams))
     } else {
-      submitVendorUpdate(vendorParams)
+      dispatch(submitVendorUpdate(vendorParams))
     }
     navigate(`/users/1`)
   }
@@ -46,18 +67,13 @@ function VendorForm({vendor, submitVendorSignup, submitVendorUpdate}) {
 
   const vendorWelcome = () => {
     if (vendor) {
-      setUsername(vendor.username)
-      setEmail(vendor.email)
-      setZipCode(vendor.zipcode)
-      setVenmoName(vendor.venmoname)
-      setImage(vendor.image)
-      setWebsite(vendor.website)
       return <h3>Welcome {vendor.username} Please Edit Your Information:</h3>
     } else {return <h3>Complete The Form Below To Create A New Vendor Account:</h3>}
   }
+  const welcomeMessage = vendorWelcome()
 
   return <>
-  {vendorWelcome()}
+  {welcomeMessage}
   <form onSubmit={handleSubmit}>
         <label>
           Username:
@@ -88,10 +104,4 @@ function VendorForm({vendor, submitVendorSignup, submitVendorUpdate}) {
   </>
 }
 
-const mapStateToProps = (state) => {
-  return {
-    vendor: state.selectedUser.vendor
-  }
-}
-
-export default connect(mapStateToProps, { submitVendorSignup, submitVendorUpdate } )(VendorForm)
+export default VendorForm;

@@ -27,7 +27,7 @@ export const submitSignup = (user) => {
   .then(result => {
     if (!!result.user && !!result.token) {
       localStorage.token = result.token
-      dispatch({type: "SET_USER", payload: Object.assign(result.user, result.vendor)})
+      dispatch({type: "SET_USER", payload: Object.assign(result.user, {vendor: result.vendor})})
     } else {window.alert("Invalid Entry")}
   })
 }
@@ -44,7 +44,7 @@ export const submitLogin = (user) => {
   .then(result => {
     if (!!result.user && !!result.token) {
       localStorage.token = result.token
-      dispatch({type: "SET_USER", payload: Object.assign(result.user, result.vendor)})
+      dispatch({type: "SET_USER", payload: Object.assign(result.user, {vendor: result.vendor})})
     } else {window.alert("Invalid Entry")}
   })
 }
