@@ -14,9 +14,7 @@ function VendorContainer({vendor, selectedVendor, getVendor}) {
     return clearVendor
   }, [getVendor, vendorId, clearVendor])
 
-  let display = (vendor == selectedVendor ? <VendorHome vendor={vendor} /> : <VendorShow vendor={selectedVendor} />)
-  console.log("vendor=", vendor)
-  console.log("selectedVendor=", selectedVendor)
+  let display = (vendor.id === selectedVendor.id ? <VendorHome vendor={vendor} /> : <VendorShow vendor={selectedVendor} />)
   return <>
     {display}
   </>

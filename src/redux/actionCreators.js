@@ -91,8 +91,8 @@ export const submitVendorUpdate = (vendor) => {
   .catch(error => console.log(error))
 }
 
-export const getVendor = (eventId) => {
-  return dispatch => fetch(`${url}/vendors/${eventId}`)
+export const getVendor = (vendorId) => {
+  return dispatch => fetch(`${url}/vendors/${vendorId}`)
     .then(response=>response.json())
     .then(result => dispatch({type: "GET_VENDOR", payload: result}))
 }

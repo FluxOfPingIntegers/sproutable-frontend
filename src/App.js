@@ -7,17 +7,19 @@ import Auth from './components/Auth'
 import UserEdit from './components/UserEdit'
 import UserContainer from './containers/UserContainer'
 import { Routes as Switch, Route } from "react-router-dom"
-import { connect } from 'react-redux'
-import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
 import { autoLogin } from './redux/actionCreators'
 import Home from './components/Home'
 import EventShow from './components/EventShow'
 import VendorForm from './components/VendorForm'
 import VendorContainer from './containers/VendorContainer'
 
-function App({autoLogin, user}) {
-
-  useEffect(() => localStorage.token && autoLogin(), [autoLogin])
+function App() {
+  const dispatch = useDispatch()
+  const user = useSelector((state) => (state.selectedUser))
+  const [value, setValue] = useState('')
+  useEffect(() => localStorage.token && dispatch(autoLogin()), [autoLogin, value])
   return (
     <div className="App">
       <Nav />
@@ -41,4 +43,4 @@ function App({autoLogin, user}) {
 
 const mapStateToProps = (state) => ({user: state.selectedUser})
 
-export default connect(mapStateToProps, {autoLogin})(App);
+export default App;
