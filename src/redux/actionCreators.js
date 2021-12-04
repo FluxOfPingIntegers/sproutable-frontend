@@ -73,7 +73,7 @@ export const submitVendorSignup = (vendor) => {
     body: JSON.stringify(vendor)
   })
   .then(response => response.json())
-  .then(result => dispatch({type: "SET_VENDOR", payload: result}))
+  .then(result => {return (!!result.id ? dispatch({type: "SET_VENDOR", payload: result}) : window.alert("Invalid Entry"))})
   .catch(error => console.log(error))
 }
 

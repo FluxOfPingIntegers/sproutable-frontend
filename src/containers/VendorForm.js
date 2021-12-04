@@ -18,14 +18,14 @@ function VendorForm() {
   }
 
   const validVendorParams = ({username, email, zipCode, venmoname, image, website}) => {
-    let vendor = {}
-    vendor = isFieldValid(username) ? Object.assign(vendor, {username: username}) : vendor
-    vendor = isFieldValid(email) ? Object.assign(vendor, {email: email}) : vendor
-    vendor = isFieldValid(zipCode) ? Object.assign(vendor, {zipcode: zipCode}) : vendor
-    vendor = isFieldValid(venmoname) ? Object.assign(vendor, {venmoname: venmoname}) : vendor
-    vendor = isFieldValid(image) ? Object.assign(vendor, {image: image}) : vendor
-    vendor = isFieldValid(website) ? Object.assign(vendor, {website: website}) : vendor
-    return vendor
+    let vendorParams = (!!vendor ? vendor : {} )
+    vendorParams = isFieldValid(username) ? Object.assign(vendorParams, {username: username}) : vendorParams
+    vendorParams = isFieldValid(email) ? Object.assign(vendorParams, {email: email}) : vendorParams
+    vendorParams = isFieldValid(zipCode) ? Object.assign(vendorParams, {zipcode: zipCode}) : vendorParams
+    vendorParams = isFieldValid(venmoname) ? Object.assign(vendorParams, {venmoname: venmoname}) : vendorParams
+    vendorParams = isFieldValid(image) ? Object.assign(vendorParams, {image: image}) : vendorParams
+    vendorParams = isFieldValid(website) ? Object.assign(vendorParams, {website: website}) : vendorParams
+    return vendorParams
   }
   const newOrEdit = () => {
     console.log("VendorForm, newOrEdit vendor=", vendor)
