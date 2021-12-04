@@ -5,12 +5,13 @@ import { useDispatch } from 'react-redux'
 
 
 function VendorEdit({vendor, validVendorParams, user}) {
-  const [username, setUsername] = useState("")
-  const [email, setEmail] = useState("")
-  const [zipCode, setZipCode] = useState("")
-  const [venmoname, setVenmoName] = useState("")
-  const [image, setImage] = useState("")
-  const [website, setWebsite] = useState("")
+  console.log("VendorEdit vendor=", vendor)
+  const [username, setUsername] = useState(() => !!vendor.username ? vendor.username : "")
+  const [email, setEmail] = useState(() => !!vendor.email ? vendor.email : "")
+  const [zipCode, setZipCode] = useState(() => !!vendor.zipcode ? vendor.zipcode : "")
+  const [venmoname, setVenmoName] = useState(() => !!vendor.venmoname ? vendor.venmoname : "")
+  const [image, setImage] = useState(() => !!vendor.image ? vendor.image : "")
+  const [website, setWebsite] = useState(() => !!vendor.website ? vendor.website : "")
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -35,27 +36,27 @@ function VendorEdit({vendor, validVendorParams, user}) {
       <form onSubmit={handleSubmit}>
         <label>
           Username:
-          <input type="text" name="username" value={vendor.username} onChange={(e) => setUsername(e.target.value)} /><br />
+          <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
         </label>
         <label>
           Email:
-          <input type="text" name="email" value={vendor.email} onChange={(e) => setEmail(e.target.value)} /><br />
+          <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
         </label>
         <label>
           Zip Code: 
-          <input type="number" name="zipcode" value={vendor.zipCode} onChange={(e) => setZipCode(e.target.value)} /><br />
+          <input type="number" name="zipcode" value={zipCode} onChange={(e) => setZipCode(e.target.value)} /><br />
         </label>
         <label>
           Venmo Username:
-          <input type="text" name="venmoname" value={vendor.venmoname} onChange={(e) => setVenmoName(e.target.value)} /><br />
+          <input type="text" name="venmoname" value={venmoname} onChange={(e) => setVenmoName(e.target.value)} /><br />
         </label>
         <label>
           Image Url:
-          <input type="text" name="image" value={vendor.image} onChange={(e) => setImage(e.target.value)} /><br />
+          <input type="text" name="image" value={image} onChange={(e) => setImage(e.target.value)} /><br />
         </label>
         <label>
           Website Url:
-          <input type="text" name="website" value={vendor.website} onChange={(e) => setWebsite(e.target.value)} /><br />
+          <input type="text" name="website" value={website} onChange={(e) => setWebsite(e.target.value)} /><br />
         </label>
         <input type="submit" value="Submit" />
       </form>
@@ -71,6 +72,7 @@ function VendorEdit({vendor, validVendorParams, user}) {
   }
 
   const editVendorMessage = populateEditVendorMessage()
+  console.log("VendorEdit end, vendor=", vendor)
   return editVendorMessage
 }
 

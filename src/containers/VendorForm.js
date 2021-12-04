@@ -30,9 +30,9 @@ function VendorForm() {
   const newOrEdit = () => {
     if (signup) {
       return <VendorNew vendor={vendor} validVendorParams={validVendorParams} user={user} />
-    } else {
+    } else if (!!vendor) {
       return <VendorEdit vendor={vendor} validVendorParams={validVendorParams} user={user} />
-    }
+    } else {return <><p>Loading...</p></>}
   }
   const formPop = newOrEdit()
   return formPop
