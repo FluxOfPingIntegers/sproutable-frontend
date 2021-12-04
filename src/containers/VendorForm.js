@@ -28,7 +28,6 @@ function VendorForm() {
     return vendorParams
   }
   const newOrEdit = () => {
-    console.log("VendorForm, newOrEdit vendor=", vendor)
     if (signup) {
       return <VendorNew vendor={vendor} validVendorParams={validVendorParams} user={user} />
     } else {
@@ -36,7 +35,6 @@ function VendorForm() {
     }
   }
   const formPop = newOrEdit()
-  console.log("VendorForm vendor=", vendor)
   return formPop
 
 }

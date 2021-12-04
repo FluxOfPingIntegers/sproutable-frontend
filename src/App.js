@@ -7,7 +7,7 @@ import Auth from './components/Auth'
 import UserEdit from './components/UserEdit'
 import UserContainer from './containers/UserContainer'
 import { Routes as Switch, Route } from "react-router-dom"
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import React, { useEffect } from 'react'
 import { autoLogin } from './redux/actionCreators'
 import Home from './components/Home'
@@ -18,8 +18,6 @@ import VendorContainer from './containers/VendorContainer'
 function App() {
   const dispatch = useDispatch()
   useEffect(() => localStorage.token && dispatch(autoLogin()), [autoLogin])
-  const vendor = useSelector((state) => (state.selectedUser.vendor))
-  console.log("App vendor=", vendor)
   return (
     <div className="App">
       <Nav />
