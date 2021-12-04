@@ -78,7 +78,7 @@ export const submitVendorSignup = (vendor) => {
 }
 
 export const submitVendorUpdate = (vendor) => {
-  return dispatch => fetch(`${url}/vendors`, {
+  return dispatch => fetch(`${url}/vendors/1`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
