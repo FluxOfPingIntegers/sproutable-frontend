@@ -3,6 +3,8 @@ import ProductIndex from '../containers/ProductIndex'
 function VendorShow({vendor}) {
   const {username, email, zipcode, venmoname, image, website, products} = vendor
   const info = (field) => {return !!field ? field : "Not Listed"}
+  const productList = () => <ProductIndex products={products} vendorId={vendor.id} />
+  const productListings = productList()
   return <>
     <h1>{username}</h1>
     <img src={image} alt="No Pic Available" />
@@ -13,7 +15,7 @@ function VendorShow({vendor}) {
       <li>Venmo Username: {info(venmoname)}</li>
       <li>Website: {info(website)}</li>
     </ul>
-    <ProductIndex products={products} vendorId={vendor.id} />
+    {productListings}
   </>
 }
 

@@ -5,7 +5,7 @@ import { getVendor, clearVendor } from '../redux/actionCreators'
 import VendorShow from '../components/VendorShow'
 import VendorHome from '../components/VendorHome'
 
-function VendorContainer({vendor, selectedVendor, getVendor}) {
+function VendorContainer({vendor, selectedVendor, getVendor, user}) {
   const vendorUrl = useLocation().pathname.toString()
   const vendorPaths = vendorUrl.split("/")
   const vendorId = vendorPaths[vendorPaths.length - 1]
@@ -14,7 +14,8 @@ function VendorContainer({vendor, selectedVendor, getVendor}) {
     return clearVendor
   }, [getVendor, vendorId, clearVendor])
 
-  let display = (vendor.id === selectedVendor.id ? <VendorHome vendor={vendor} /> : <VendorShow vendor={selectedVendor} />)
+  let vendorDisplay = (vendor.id === selectedVendor.id ? <VendorHome vendor={vendor} /> : <VendorShow vendor={selectedVendor} />)
+  let display = (user.username !== "" ? vendorDisplay : <p>You Must Be Logged In To View Vendor Details</p>)
   return <>
     {display}
   </>
@@ -23,7 +24,8 @@ function VendorContainer({vendor, selectedVendor, getVendor}) {
 const mapStateToProps = (state) => {
     return {
       vendor: state.selectedUser.vendor,
-      selectedVendor: state.selectedVendor
+      selectedVendor: state.selectedVendor,
+      user: state.selectedUser
     }
 }
 
