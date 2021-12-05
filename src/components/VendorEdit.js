@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux'
 
 
 function VendorEdit({vendor, validVendorParams, user}) {
-  console.log("VendorEdit vendor=", vendor)
   const [username, setUsername] = useState(() => !!vendor.username ? vendor.username : "")
   const [email, setEmail] = useState(() => !!vendor.email ? vendor.email : "")
   const [zipCode, setZipCode] = useState(() => !!vendor.zipcode ? vendor.zipcode : "")
@@ -72,7 +71,6 @@ function VendorEdit({vendor, validVendorParams, user}) {
   }
 
   const editVendorMessage = populateEditVendorMessage()
-  console.log("VendorEdit end, vendor=", vendor)
   return editVendorMessage
 }
 

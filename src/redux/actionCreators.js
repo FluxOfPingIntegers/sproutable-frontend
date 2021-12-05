@@ -139,4 +139,18 @@ export const submitUserUpdate = (user) => {
   .catch(error => console.log(error))
 }
 
+export const submitProductDestroy = ({productId, vendorId}) => {
+  return dispatch => fetch(`${url}/vendors${vendorId}/products/${productId}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': localStorage.token,
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(result => {
+    !!result["products"] ? dispatch({type: "SET_VENDOR", payload: result}) : window.alert("Invalid Delete Action")
+  })
+}
+
 export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}

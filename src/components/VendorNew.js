@@ -60,7 +60,7 @@ function VendorNew({vendor, validVendorParams, user}) {
   const populateNewVendorMessage = () => {
     if (!!vendor["user_id"]) {
       return occupiedNew()
-    } else if (user) {
+    } else if (user.username !== "") {
       return validNew()
     } else {return unauthorizedNew()}
   }

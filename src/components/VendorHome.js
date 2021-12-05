@@ -1,7 +1,7 @@
-
+import ProductIndex from '../containers/ProductIndex'
 
 function VendorHome({vendor}) {
-    const { username, name, email, image, zipcode, venmoname, website } = vendor
+    const { username, name, email, image, zipcode, venmoname, website, products } = vendor
     const info = (field) => {return !!field ? field : "Not Listed"}
   return <>
     <h2>Welcome {username} To Your Vendor Portal</h2>
@@ -15,6 +15,7 @@ function VendorHome({vendor}) {
       <li>Website: {info(website)}</li>
     </ul>
     <p>Click <a href={`/vendors/${vendor.id}/edit`}>here</a> to edit this account</p>
+    <ProductIndex products={products} vendorId={vendor.id} />
   </>
 }
 
