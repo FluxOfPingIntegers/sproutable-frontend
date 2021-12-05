@@ -11,6 +11,7 @@ function ProductCard({product, vendorId, owner}) {
       e.preventDefault()
       navigate(`/vendors/${vendorId}/products/${product.id}/edit`)
     }
+
     const handleDeleteClick = (e) => {
       e.preventDefault()
       dispatch(submitProductDestroy({productId: product.id, vendorId: vendorId}))

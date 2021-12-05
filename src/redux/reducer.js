@@ -1,4 +1,4 @@
-import {initialLocation, initialUser, initialEvent, initialVendor} from './initialStates'
+import {initialLocation, initialUser, initialEvent, initialVendor, initialProduct} from './initialStates'
 
 const initialState = {
   locations: [],
@@ -6,7 +6,8 @@ const initialState = {
   selectedUser: initialUser,
   selectedZip: 20500,
   selectedEvent: initialEvent,
-  selectedVendor: initialVendor
+  selectedVendor: initialVendor,
+  selectedProduct: initialProduct
 }
 
 export function reducer(state=initialState, action){

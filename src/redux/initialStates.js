@@ -21,6 +21,7 @@ export const initialEvent = Object.assign(initialLocation.location, {
 })
 
 export const initialUser = {
+  id: "",
   username: "",
   name: "",
   email: "",
@@ -34,3 +35,13 @@ export const initialVendor = Object.assign(initialUser, {
   website: "",
   products: []
 })
+
+export const initialProduct = {
+  name: "",
+  category: "",
+  description: "",
+  image: "",
+  price: 0,
+  quantity: 0,
+  vendor_id: 0
+}

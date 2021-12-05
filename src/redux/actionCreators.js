@@ -140,7 +140,7 @@ export const submitUserUpdate = (user) => {
 }
 
 export const submitProductDestroy = ({productId, vendorId}) => {
-  return dispatch => fetch(`${url}/vendors${vendorId}/products/${productId}`, {
+  return dispatch => fetch(`${url}/vendors/${vendorId}/products/${productId}`, {
     method: 'DELETE',
     headers: {
       'Authorization': localStorage.token,
@@ -150,6 +150,18 @@ export const submitProductDestroy = ({productId, vendorId}) => {
   .then(response => response.json())
   .then(result => {
     !!result["products"] ? dispatch({type: "SET_VENDOR", payload: result}) : window.alert("Invalid Delete Action")
+  })
+}
+
+export const getProduct = ({productId, vendorId}) => {
+  return dispatch => fetch(`${url}/vendors/${vendorId}/products/${productId}`, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(result => {
+    !!result["id"] ? dispatch({type: "SET_PRODUCT", payload: result}) : window.alert("No Such Product")
   })
 }
 
