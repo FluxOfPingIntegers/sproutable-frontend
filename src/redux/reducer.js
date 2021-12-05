@@ -40,6 +40,10 @@ export function reducer(state=initialState, action){
       return {...state, selectedEvent: action.payload}
     case "CLEAR_EVENT":
       return {...state, selectedEvent: initialEvent}
+    case "SET_PRODUCT":
+      return {...state, selectedProduct: action.payload}
+    case "CLEAR_PRODUCT":
+      return {...state, selectedProduct: initialProduct}
     default:
       return {...state}
   }

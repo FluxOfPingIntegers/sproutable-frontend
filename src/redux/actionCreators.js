@@ -165,4 +165,6 @@ export const getProduct = ({productId, vendorId}) => {
   })
 }
 
+export const clearProduct = () => {return dispatch => dispatch({type: "CLEAR_PRODUCT"})}
+
 export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}
