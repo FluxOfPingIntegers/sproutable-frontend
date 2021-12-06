@@ -1,20 +1,21 @@
 import { useState } from 'react'
 import { submitNewProduct } from '../redux/actionCreators'
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 function ProductNew() {
   const vendorId = useSelector((state) => (state.selectedUser.vendor.id))
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [name, setName] = useState("")
-  const [category, setCategory] = useState("")
+  const [category, setCategory] = useState("vegetable")
   const [description, setDescription] = useState("")
   const [image, setImage] = useState("")
   const [price, setPrice] = useState(0)
   const [quantity, setQuantity] = useState(0)
     
   const isFieldValid = (field) => {
-    if (field.length < 3 || field === "invalid" || field === "Invalid" || field[0] === " " || field[field.length -1] === " " || field === 0){
+    if (field.length < 1 || field === "invalid" || field === "Invalid" || field[0] === " " || field[field.length -1] === " " || field === 0){
       return false
     } else {
       return true
@@ -22,7 +23,7 @@ function ProductNew() {
   }
 
   const newProductParams = ({name, category, description, image, price, quantity}) => {
-    let product = {vendor_id: vendorId}
+    let product = {}
     product = isFieldValid(name) ? Object.assign(product, {name: name}) : product
     product = isFieldValid(category) ? Object.assign(product, {category: category}) : product
     product = isFieldValid(description) ? Object.assign(product, {description: description}) : product
@@ -35,9 +36,9 @@ function ProductNew() {
   const handleSubmit = (e) => {
     e.preventDefault()
     let productParams = newProductParams({name, category, description, image, price, quantity})
-    let areBasicsValid = (isFieldValid(name) || isFieldValid(price) || isFieldValid(quantity))
+    let areBasicsValid = (isFieldValid(name) || name.length >= 3 || isFieldValid(price) || isFieldValid(quantity))
     if (areBasicsValid) {
-      dispatch(submitNewProduct(productParams))
+      dispatch(submitNewProduct({productParams: productParams, vendorId: vendorId}))
       navigate(`/vendors/${vendorId}`)
     } else {window.alert("Name, Price, and Quantity fields must be valid")}
   }
@@ -63,7 +64,7 @@ function ProductNew() {
             <option value="pork">Pork</option>
             <option value="poultry">Poultry</option>
             <option selected value="vegetable">Vegetable</option>
-          </select>
+          </select><br />
         </label>
         <label>
           Image URL:<br />
@@ -90,8 +91,7 @@ function ProductNew() {
   const invalidVendor = () => <p>You Must Have A Vendor Account To Create A Product</p>
   const productNewDisplay = (!!vendorId ? newProductForm() : invalidVendor() )
 
-  return {productNewDisplay}
+  return <>{productNewDisplay}</>
 }
-
 
 export default ProductNew

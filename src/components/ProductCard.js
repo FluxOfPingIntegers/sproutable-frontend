@@ -20,7 +20,7 @@ function ProductCard({product, vendorId, owner}) {
     return (
     <li>
       Category: {product.category}, Name: {product.name}, Info: <a href={`/vendors/${vendorId}/products/${product.id}`}>Click Here</a><br></br>
-      <button value={"Edit This Product"} onClick={handleEditClick}/> OR <button value={"Delete This Product"} onClick={handleDeleteClick}/>
+      <button onClick={handleEditClick}>Edit This Product</button> OR <button onClick={handleDeleteClick}>Delete This Product</button>
     </li>
     )
   }

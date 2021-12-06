@@ -8,9 +8,9 @@ function ProductIndex({products, vendorId}) {
   const vendorProductsDisplay = (products) => {
     console.log("productIndex, productsDisplay products=", products)
     if (products.length > 0 && vendor.id === vendorId) {
-      return <ul>{products.map(product => <ProductCard {...product} vendorId={vendorId} key={product.id} owner={true}/>)}</ul>
+      return <ul>{products.map(product => <ProductCard product={product} vendorId={vendorId} key={product.id} owner={true}/>)}</ul>
     } else if (products.length > 0 && vendor.id !== vendorId) {
-      return <ul>{products.map(product => <ProductCard {...product} vendorId={vendorId} key={product.id} owner={false}/>)}</ul>
+      return <ul>{products.map(product => <ProductCard product={product} vendorId={vendorId} key={product.id} owner={false}/>)}</ul>
     } else if (products.length < 1 && vendor.id === vendorId) {
       return <>
       <p>You have no products listed!  Would you like to <a href={`/vendors/${vendor.id}/products/new`}>list</a> some?</p>

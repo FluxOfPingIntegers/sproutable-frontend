@@ -165,6 +165,19 @@ export const getProduct = ({productId, vendorId}) => {
   })
 }
 
+export const submitNewProduct = ({vendorId, productParams}) => {
+  return dispatch => fetch(`${url}/vendors/${vendorId}/products`, {
+    method: 'POST',
+    headers: {
+      'Authorization': localStorage.token,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(productParams)
+  })
+  .then(response => response.json())
+  .then(vendor => {return (!!vendor.id ? dispatch({type: "SET_VENDOR", payload: vendor}) : window.alert(vendor.errors))})
+}
+
 export const clearProduct = () => {return dispatch => dispatch({type: "CLEAR_PRODUCT"})}
 
 export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}
