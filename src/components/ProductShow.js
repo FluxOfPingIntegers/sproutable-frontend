@@ -31,7 +31,7 @@ function ProductShow() {
     </>
   }
 
-  const productDisplay = (!!product.id ? productInfo(product) : <p>No Such Product</p>)
+  const productDisplay = (!!product.name ? productInfo(product) : <p>No Such Product</p>)
 
   return <>{productDisplay}</>
 }

@@ -161,7 +161,7 @@ export const getProduct = ({productId, vendorId}) => {
   })
   .then(response => response.json())
   .then(result => {
-    !!result["id"] ? dispatch({type: "SET_PRODUCT", payload: result}) : window.alert("No Such Product")
+    !!result["name"] ? dispatch({type: "SET_PRODUCT", payload: result}) : window.alert("No Such Product")
   })
 }
 
