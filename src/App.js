@@ -13,6 +13,7 @@ import { autoLogin } from './redux/actionCreators'
 import Home from './components/Home'
 import EventShow from './components/EventShow'
 import ProductShow from './components/ProductShow'
+import ProductNew from './components/ProductNew'
 import VendorForm from './containers/VendorForm'
 import VendorContainer from './containers/VendorContainer'
 
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/locations/zip-search" element={<ZipSearch />} />
         <Route exact path="/vendors/new" element={<VendorForm />} />
         <Route exact path="/vendors/:vendor_id/products/:id" element={<ProductShow />} />
+        <Route exact path="/vendors/:vendor_id/products/new" element={<ProductNew />} />
         <Route exact path="/vendors/:vendor_id/edit" element={<VendorForm />} />
         <Route exact path="/vendors/:vendor_id" element={<VendorContainer />} />
         <Route exact path="/" element={<Home />} />
