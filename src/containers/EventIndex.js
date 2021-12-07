@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import EventCard from '../components/EventCard'
 
 function EventIndex({events}) {
-  return <div className="EventIndex">
+  return <div id="EventIndex">
       <h3>Upcoming Events:</h3>
       {events.map(event => <EventCard {...event} key={event.id}/>)}
   </div>

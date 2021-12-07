@@ -28,8 +28,10 @@ function Nav({user, clearUser}){
   )
 
   return <nav className="Nav">
+    <div id="nav">
     {!!user.username ? userDisplay : authOptions}
     <NavLink to="/locations/zip-search">Search Markets By Zip</NavLink>
+    </ div>
   </nav>
 }
 

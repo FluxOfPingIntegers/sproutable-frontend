@@ -13,7 +13,7 @@ function LocationIndex({getLocations, locations}){
   return clearLocation
 }, [getLocations, zipSearch, clearLocation])
 
-  return <div className="LocationIndex">
+  return <div id="LocationIndex">
     {locations.map(location => <LocationCard {...location} key={location.id}/>)}
   </div>
 }

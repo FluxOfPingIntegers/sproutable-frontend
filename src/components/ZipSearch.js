@@ -11,7 +11,7 @@ function ZipSearch(){
       navigate(`/locations/zip-search/${selectedZip}`)
     }
   
-    return <div className="Nav">
+    return <div id="ZipSearch">
       <form onSubmit={handleSubmit}>
         <label>Please enter zipcode to search: 
           <input type="number" name="SelectedZip" value={selectedZip} onChange={(e) => setSelectedZip(e.target.value)} />

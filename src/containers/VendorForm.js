@@ -35,7 +35,7 @@ function VendorForm() {
     } else {return <><p>Loading...</p></>}
   }
   const formPop = newOrEdit()
-  return formPop
+  return <div id="VendorForm">{formPop}</div>
 
 }
 

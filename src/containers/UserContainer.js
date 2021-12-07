@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import UserShow from '../components/UserShow'
 
 function UserContainer({user}){
-return <div className="UserContainer">
+return <div id="UserContainer">
   <UserShow user={user} />
 </div>
 

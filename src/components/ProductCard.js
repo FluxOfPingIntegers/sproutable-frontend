@@ -7,10 +7,10 @@ function ProductCard({product, vendorId, owner}) {
   const dispatch = useDispatch()
 
   const ownerListing = () => {
-    const handleEditClick = (e) => {
+  /*  const handleEditClick = (e) => {
       e.preventDefault()
       navigate(`/vendors/${vendorId}/products/${product.id}/edit`)
-    }
+    } */
 
     const handleDeleteClick = (e) => {
       e.preventDefault()
@@ -19,10 +19,10 @@ function ProductCard({product, vendorId, owner}) {
 
     return (
     <li>
-      Category: {product.category}, Name: {product.name}, Info: <a href={`/vendors/${vendorId}/products/${product.id}`}>Click Here</a><br></br>
-      <button onClick={handleEditClick}>Edit This Product</button> OR <button onClick={handleDeleteClick}>Delete This Product</button>
+      Name: {product.name}, Category: {product.category}, Info: <a href={`/vendors/${vendorId}/products/${product.id}`}>Click Here</a><br></br>
+      <button onClick={handleDeleteClick}>Delete This Product</button>
     </li>
-    )
+    ) // <button onClick={handleEditClick}>Edit This Product</button> OR 
   }
 
   const visitorListing = () => {

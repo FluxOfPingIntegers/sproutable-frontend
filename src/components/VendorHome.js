@@ -11,11 +11,12 @@ function VendorHome({vendor}) {
     <ul>
       <li>Name: {info(name)}</li>
       <li>Email: {info(email)}</li>
-      <li>Image URL: {info(image)}</li>
       <li>Zip Code: {info(zipcode)}</li>
       <li>Venmo Username: {info(venmoname)}</li>
       <li>Website: {info(website)}</li>
+      <li>Image URL: {info(image)}</li>
     </ul>
+    <img id="vendor-home-image" src={info(image)} alt="No Image Available" />
     <p>Click <a href={`/vendors/${vendor.id}/edit`}>here</a> to edit this account</p>
     {productListings}
   </>

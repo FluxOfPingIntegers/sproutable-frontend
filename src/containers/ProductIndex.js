@@ -20,7 +20,7 @@ function ProductIndex({products, vendorId}) {
 
   const productsDisplay = (products) => {
     if (!!user.username) {
-      return <ul>{products.map(product => <ProductCard {...product} vendorId={vendorId} key={product.id} owner={false}/>)}</ul>
+      return <ul>{products.map(product => <ProductCard product={product} vendorId={vendorId} key={product.id} owner={false}/>)}</ul>
     } else {
       return <p>You must <a href={"/users/login"}>Login</a> OR <a href={"/users/signup"}>Signup</a> to view products</p>
     }
@@ -28,7 +28,10 @@ function ProductIndex({products, vendorId}) {
 
   const productsList = (!!vendor ? vendorProductsDisplay(products) : productsDisplay(products) )
 
-  return <>{productsList}</>
+  return <>
+  <h3>These products are produced by your farm</h3>
+  {productsList}
+  </>
 }
 
 export default ProductIndex
