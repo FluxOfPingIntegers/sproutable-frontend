@@ -29,7 +29,7 @@ finally you will need to fire up VS code by entering
 code .
 ```
 
-Third: You will need to clone/run the repo for the backend for this software. Instructions can be found in the README [here](https://github.com/FluxOfPingIntegers/sproutable-backend)
+• Third: You will need to clone/run the repo for the backend for this software. Instructions can be found in the README [here](https://github.com/FluxOfPingIntegers/sproutable-backend)
 
 • Fourth: After starting up the associated backend Rails server, go back within this repo.  Inside VS code within the main folder type 
 ```bash
