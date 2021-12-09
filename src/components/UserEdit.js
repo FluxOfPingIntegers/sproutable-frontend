@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom'
 function UserEdit(props) {
   const navigate = useNavigate()
   const user = props.user
-  const [username, setUsername] = useState(user.username)
-  const [name, setName] = useState(user.name)
-  const [email, setEmail] = useState(user.email)
+  const [username, setUsername] = useState(() => !!user.username ? user.username : "")
+  const [name, setName] = useState(() => !!user.name ? user.name : "")
+  const [email, setEmail] = useState(() => !!user.email ? user.email : "")
   const [password, setPassword] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
   const [image, setImage] = useState(user.image)
@@ -24,6 +24,7 @@ function UserEdit(props) {
   }
 
   const isFieldValid = (field) => {
+    if (!field) {return false}
     if (field.length < 3 || field === "invalid" || field === "Invalid" || field[0] === " " || field[field.length -1] === " "){
       return false
     } else {
