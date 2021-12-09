@@ -20,11 +20,11 @@ Second: You will need to clone the repo for this software and pull it up in VS C
 ```bash
 git clone git@github.com:FluxOfPingIntegers/congo_client.git
 ```
-then
+then switch the the folder you just created by typing
 ```bash
 cd congo_client
 ```
-then
+finally you will need to fire up VS code by entering
 ```bash
 code .
 ```
