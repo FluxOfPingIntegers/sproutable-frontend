@@ -31,7 +31,7 @@ Fourth: After starting up the associated backend Rails server, go back within th
 ```bash
 npm install
 ```
-and then one that finishes its process type
+and then once that finishes its process type
 ```bash
 npm start
 ```
