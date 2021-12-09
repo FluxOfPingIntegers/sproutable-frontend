@@ -19,9 +19,13 @@ First: You will need developer software, I used Visual Studio Code. Depending on
 Second: You will need to clone the repo for this software and pull it up in VS Code. In your terminal please navigate to the folder you would like the files for this software to be and type
 ```bash
 git clone git@github.com:FluxOfPingIntegers/congo_client.git
-
+```
+then
+```bash
 cd congo_client
-
+```
+then
+```bash
 code .
 ```
 
