@@ -10,7 +10,7 @@ This web app searches locations via zip code from a Rails backend that utilizes 
 
 • Step 3: Search a zip code to view a list of Farmers Markets in that area
 
-• Step 4: Click on the Farmers Market to its information
+• Step 4: Click on the Farmers Market to see its information
 
 ## Installation
 
