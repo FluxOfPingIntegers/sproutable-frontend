@@ -8,6 +8,12 @@
   background-position: 50%, 50%;
 }
 
+.LocationCard {
+  max-width: 60vh;
+  border: 2px solid yellow;
+  margin: auto;
+}
+
 div.pages {
   width: 75%;
   min-height: 80%;
