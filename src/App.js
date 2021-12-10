@@ -23,6 +23,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
+      <div className="pages">
       <Switch>
         <Route path="/locations/zip-search/:zipcode" element={<LocationIndex />} />
         <Route path="/locations/:id/events" element={<LocationShow />} />
@@ -39,6 +40,7 @@ function App() {
         <Route exact path="/vendors/:vendor_id" element={<VendorContainer />} />
         <Route exact path="/" element={<Home />} />
       </Switch>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,24 @@
 .App {
   text-align: center;
-  background-color: rgba(0, 180, 24, 0.5);
+  background-image: url("./assets/images/farmArt.jpg");
+  opacity: 75%;
   min-height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: 50%, 50%;
+}
+
+div.pages {
+  width: 75%;
+  min-height: 80%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 40%; left: 0; bottom: 32%; right: 0;
+  background-color: rgba(0, 180, 24, 0.7);
+  opacity: 100%;
+  border: solid black;
+  font-weight: bold;
 }
 
 .Nav {
@@ -12,7 +29,6 @@
   line-height: 75px;
   background-image: url("./assets/images/sunflowerbanner.gif");
   background-size: 75px;
-  min-height: 75px;
 }
 
 #nav {
@@ -30,8 +46,17 @@
   overflow: auto;
   margin: auto;
   position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
+  top: 50%; left: 0; bottom: 50%; right: 0;
+  background-color: rgba(194, 103, 0, 0.5);
   border: solid black;
+  font-weight: bold;
+}
+
+#zip-form {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  top: 1; left: 0; bottom: 0; right: 0;
 }
 
 .Home img {

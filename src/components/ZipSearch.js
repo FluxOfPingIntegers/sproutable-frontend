@@ -12,7 +12,7 @@ function ZipSearch(){
     }
   
     return <div id="ZipSearch">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="zip-form">
         <label>Please enter zipcode to search: 
           <input type="number" name="SelectedZip" value={selectedZip} onChange={(e) => setSelectedZip(e.target.value)} />
         </label>
