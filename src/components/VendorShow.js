@@ -5,7 +5,7 @@ function VendorShow({vendor}) {
   const info = (field) => {return !!field ? field : "Not Listed"}
   const productList = () => <ProductIndex products={products} vendorId={vendor.id} />
   const productListings = productList()
-  return <>
+  return <div className="vendor">
     <h1>{username}</h1>
     <img src={image} alt="No Pic Available" />
     <p>We Know The Following Information About This Farmer:</p>
@@ -16,7 +16,7 @@ function VendorShow({vendor}) {
       <li>Website: {info(website)}</li>
     </ul>
     {productListings}
-  </>
+  </div>
 }
 
 export default VendorShow

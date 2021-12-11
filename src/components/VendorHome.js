@@ -5,7 +5,7 @@ function VendorHome({vendor}) {
     const info = (field) => {return !!field ? field : "Not Listed"}
     const productList = () => <ProductIndex products={products} vendorId={vendor.id} />
     const productListings = productList()
-  return <>
+  return <div className="vendor">
     <h2>Welcome {username} To Your Vendor Portal</h2>
     <p>We have the following information regarding this account</p>
     <ul>
@@ -19,7 +19,7 @@ function VendorHome({vendor}) {
     <img id="vendor-home-image" src={info(image)} alt="No Image Available" />
     <p>Click <a href={`/vendors/${vendor.id}/edit`}>here</a> to edit this account</p>
     {productListings}
-  </>
+  </div>
 }
 
 export default VendorHome
