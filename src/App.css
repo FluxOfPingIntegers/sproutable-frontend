@@ -2,6 +2,13 @@
   font-size: 20px;
 }
 
+#loginButton {
+  width: 160px;
+  height: 80px;
+  background: rgb(181, 230, 23);
+  border-radius: 50%;
+}
+
 /*
 .App {
   text-align: center;

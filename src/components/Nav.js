@@ -29,9 +29,9 @@ function Nav({user, clearUser}){
   const authOptions = (
     <>
       <NavLink to="/users/login" onMouseEnter={handleMouseEnter} 
-        onMouseLeave={handleMouseLeave} id="login-button" className={buttonSize("login-button")}>Login</NavLink> |<> </>
+        onMouseLeave={handleMouseLeave} id="loginButton" className={buttonSize("loginButton")}>Login</NavLink> |<> </>
       <NavLink to="/users/signup" onMouseEnter={handleMouseEnter} 
-        onMouseLeave={handleMouseLeave} id="signup-button" className={buttonSize("signup-button")}>Signup</NavLink> |<> </>
+        onMouseLeave={handleMouseLeave} id="signupButton" className={buttonSize("signupButton")}>Signup</NavLink> |<> </>
     </>
   )
 
@@ -46,7 +46,7 @@ function Nav({user, clearUser}){
   const userDisplay = (
     <>
       Logged in as: <NavLink to="/users/1">{user.username}</NavLink> |<> </>
-      <NavLink to="/" onClick={handleLogoutClick} id="logout-button" className={buttonSize("lgout-button")}>Logout</NavLink> | <> </>
+      <NavLink to="/" onClick={handleLogoutClick} id="logoutButton" className={buttonSize("logoutButton")}>Logout</NavLink> | <> </>
     </>
   )
 
