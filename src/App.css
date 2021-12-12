@@ -1,26 +1,24 @@
 .large {
-  font-size: 20px;
+  font-size: 21px;
 }
 
-#loginButton {
-  width: 160px;
-  height: 80px;
-  background: rgb(181, 230, 23);
-  border-radius: 50%;
-}
 
-#signupButton {
+#yellowOption {
   width: 160px;
   height: 80px;
   background: rgb(255, 242, 0);
-  border-radius: 50%;  
+  border-radius: 50%;
+  position: absolute;
+  left: 70%;
+  right: 30%;
+  text-align: center;
 }
 
 #searchbar {
   margin: 20px;
 }
 
-#profileButton {
+#greenOption {
   width: 160px;
   height: 80px;
   background: rgb(181, 230, 23);
@@ -31,7 +29,7 @@
   text-align: center;
 }
 
-#logoutButton {
+#orangeOption {
   width: 160px;
   height: 80px;
   background: rgb(255, 128, 64);
@@ -42,15 +40,34 @@
   text-align: center;
 }
 
-#vendorButton {
-  width: 160px;
-  height: 80px;
-  background: rgb(255, 255, 0);
-  border-radius: 50%;
-  position: absolute;
-  left: 70%;
-  right: 30%;
-  text-align: center;
+a#profileButton {
+  position: relative;
+  top: 25%;
+  bottom: 25%;
+}
+
+a#vendorButton {
+  position: relative;
+  top: 25%;
+  bottom: 25%;
+}
+
+a#logoutButton {
+  position: relative;
+  top: 25%;
+  bottom: 25%;
+}
+
+a#loginButton {
+  position: relative;
+  top: 25%;
+  bottom: 25%;
+}
+
+a#signupButton {
+  position: relative;
+  top: 25%;
+  bottom: 25%;
 }
 
 /*

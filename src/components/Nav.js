@@ -28,10 +28,14 @@ function Nav({user, vendor, clearUser}){
 
   const authOptions = (
     <>
+    <div id="greenOption">
       <NavLink to="/users/login" onMouseEnter={handleMouseEnter} 
-        onMouseLeave={handleMouseLeave} id="loginButton" className={buttonSize("loginButton")}>Login</NavLink> |<> </>
+        onMouseLeave={handleMouseLeave} id="loginButton" className={buttonSize("loginButton")}>Login</NavLink>
+    </div>
+    <div id="yellowOption">
       <NavLink to="/users/signup" onMouseEnter={handleMouseEnter} 
-        onMouseLeave={handleMouseLeave} id="signupButton" className={buttonSize("signupButton")}>Signup</NavLink> |<> </>
+        onMouseLeave={handleMouseLeave} id="signupButton" className={buttonSize("signupButton")}>Signup</NavLink>
+    </div>
     </>
   )
 
@@ -67,17 +71,23 @@ function Nav({user, vendor, clearUser}){
   const userDisplay = (
     <>
       <div className="userNav">Currently Logged In As: {user.username}</div>
+      <div id="greenOption">
       <NavLink to="/users/1" id="profileButton" 
         className={buttonSize("profileButton")}
         onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave}
       >Profile</NavLink>
-    {vendorDisplay} 
+      </div>
+      <div id="yellowOption">
+        {vendorDisplay}
+      </div>
+      <div id="orangeOption">
       <NavLink to="/" onClick={handleLogoutClick} id="logoutButton" 
         className={buttonSize("logoutButton")}
         onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave}
       >Logout</NavLink>
+      </div>
     </>
   )
 
