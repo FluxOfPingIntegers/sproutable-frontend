@@ -5,7 +5,7 @@ import {clearUser} from '../redux/actionCreators'
 import ZipSearch from './ZipSearch'
 import { useState } from 'react'
 
-function Nav({user, clearUser}){
+function Nav({user, vendor, clearUser}){
   const [selectedButton, setSelectedButton] = useState("")
 
   const handleMouseEnter = (e) => {
@@ -43,6 +43,27 @@ function Nav({user, clearUser}){
     navigate('/')
   }
 
+  const vendorExist = () => {
+    let vendorUrl = `/vendors/${vendor.id}`
+  return ( 
+  <NavLink to={vendorUrl} id="vendorButton" 
+    className={buttonSize("vendorButton")}
+    onMouseEnter={handleMouseEnter}
+    onMouseLeave={handleMouseLeave}
+  >Vendor Page</NavLink>
+  )}
+
+  const vendorVacant = () => {
+    return (
+    <NavLink to="/vendors/new" id="vendorButton"
+      className={buttonSize("vendorButton")}
+      onMouseEnter={handleMouseEnter} 
+      onMouseLeave={handleMouseLeave}
+    >Create Vendor</NavLink>
+  )}
+
+  const vendorDisplay = (!!vendor ? vendorExist() : vendorVacant())
+
   const userDisplay = (
     <>
       <div className="userNav">Currently Logged In As: {user.username}</div>
@@ -51,11 +72,12 @@ function Nav({user, clearUser}){
         onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave}
       >Profile</NavLink>
+    {vendorDisplay} 
       <NavLink to="/" onClick={handleLogoutClick} id="logoutButton" 
         className={buttonSize("logoutButton")}
         onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave}
-        >Logout</NavLink>
+      >Logout</NavLink>
     </>
   )
 
@@ -71,6 +93,7 @@ function Nav({user, clearUser}){
 const mapStateToProps = (state) => {
   return {
     user: state.selectedUser,
+    vendor: state.selectedUser.vendor
   }
 }
 

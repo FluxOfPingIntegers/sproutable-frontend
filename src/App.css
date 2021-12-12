@@ -30,8 +30,15 @@
 #logoutButton {
   width: 160px;
   height: 80px;
-  background: rgb(255, 242, 0);
+  background: rgb(255, 128, 64);
   border-radius: 50%;  
+}
+
+#vendorButton {
+  width: 160px;
+  height: 80px;
+  background: rgb(255, 255, 0);
+  border-radius: 50%;   
 }
 
 /*
