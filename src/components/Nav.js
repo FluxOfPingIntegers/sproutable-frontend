@@ -46,8 +46,16 @@ function Nav({user, clearUser}){
   const userDisplay = (
     <>
       <div className="userNav">Currently Logged In As: {user.username}</div>
-      <NavLink to="/users/1" id="profileButton">Profile</NavLink>
-      <NavLink to="/" onClick={handleLogoutClick} id="logoutButton" className={buttonSize("logoutButton")}>Logout</NavLink>
+      <NavLink to="/users/1" id="profileButton" 
+        className={buttonSize("profileButton")}
+        onMouseEnter={handleMouseEnter} 
+        onMouseLeave={handleMouseLeave}
+      >Profile</NavLink>
+      <NavLink to="/" onClick={handleLogoutClick} id="logoutButton" 
+        className={buttonSize("logoutButton")}
+        onMouseEnter={handleMouseEnter} 
+        onMouseLeave={handleMouseLeave}
+        >Logout</NavLink>
     </>
   )
 
