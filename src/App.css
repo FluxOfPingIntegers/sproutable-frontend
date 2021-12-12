@@ -25,20 +25,32 @@
   height: 80px;
   background: rgb(181, 230, 23);
   border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  text-align: center;
 }
 
 #logoutButton {
   width: 160px;
   height: 80px;
   background: rgb(255, 128, 64);
-  border-radius: 50%;  
+  border-radius: 50%;
+  position: absolute;
+  left: 90%;
+  right: 10%;
+  text-align: center;
 }
 
 #vendorButton {
   width: 160px;
   height: 80px;
   background: rgb(255, 255, 0);
-  border-radius: 50%;   
+  border-radius: 50%;
+  position: absolute;
+  left: 70%;
+  right: 30%;
+  text-align: center;
 }
 
 /*

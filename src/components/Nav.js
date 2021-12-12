@@ -86,7 +86,6 @@ function Nav({user, vendor, clearUser}){
     <div id="searchbar">
     <ZipSearch />
     </div>
-    {/* <NavLink to="/locations/zip-search">Search Markets By Zip</NavLink> */}
   </nav>
 }
 
