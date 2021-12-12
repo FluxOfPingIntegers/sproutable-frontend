@@ -45,17 +45,18 @@ function Nav({user, clearUser}){
 
   const userDisplay = (
     <>
-      Logged in as: <NavLink to="/users/1">{user.username}</NavLink> |<> </>
-      <NavLink to="/" onClick={handleLogoutClick} id="logoutButton" className={buttonSize("logoutButton")}>Logout</NavLink> | <> </>
+      <div className="userNav">Currently Logged In As: {user.username}</div>
+      <NavLink to="/users/1" id="profileButton">Profile</NavLink>
+      <NavLink to="/" onClick={handleLogoutClick} id="logoutButton" className={buttonSize("logoutButton")}>Logout</NavLink>
     </>
   )
 
   return <nav className="Nav">
-    <>
     {!!user.username ? userDisplay : authOptions}
+    <div id="searchbar">
     <ZipSearch />
+    </div>
     {/* <NavLink to="/locations/zip-search">Search Markets By Zip</NavLink> */}
-    </>
   </nav>
 }
 

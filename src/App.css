@@ -9,6 +9,17 @@
   border-radius: 50%;
 }
 
+#signupButton {
+  width: 160px;
+  height: 80px;
+  background: rgb(255, 242, 0);
+  border-radius: 50%;  
+}
+
+#searchbar {
+  margin: 20px;
+}
+
 /*
 .App {
   text-align: center;
