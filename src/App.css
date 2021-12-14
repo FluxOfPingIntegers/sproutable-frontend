@@ -70,6 +70,22 @@ a#signupButton {
   bottom: 25%;
 }
 
+ul.userNav {
+  border: solid rgb(179, 87, 20) 10px;
+}
+
+ul.userNav, li {
+  display: inline;
+  background: rgb(239, 227, 175);
+}
+
+ul.userNav, li#usernameNav {
+  border: solid rgb(179, 87, 20) 2px;
+  background: none;
+}
+
+
+
 /*
 .App {
   text-align: center;
