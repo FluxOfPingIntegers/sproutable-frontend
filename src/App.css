@@ -70,18 +70,27 @@ a#signupButton {
   bottom: 25%;
 }
 
-ul.userNav {
-  border: solid rgb(179, 87, 20) 10px;
-}
-
 ul.userNav, li {
   display: inline;
   background: rgb(239, 227, 175);
+  margin: 0;
+  padding: 0;
+  border: solid rgb(179, 87, 20) 2px;
 }
 
-ul.userNav, li#usernameNav {
+li#usernameNav {
   border: solid rgb(179, 87, 20) 2px;
-  background: none;
+  background: white;
+  font-weight:700;
+  overflow: hidden;
+}
+
+li#line {
+  float: right;
+  width: 70%;
+  height: 20px;
+  background: rgb(0, 128, 0);
+  border: solid green 2px;
 }
 
 

@@ -70,7 +70,7 @@ function Nav({user, vendor, clearUser}){
 
   const userDisplay = (
     <>
-      <ul className="userNav" ><li>Currently Logged In As: </li><li id="usernameNav">{user.username}</li></ul>
+      <ul className="userNav" ><li>Currently Logged In As: </li><li id="usernameNav">{user.username}</li><li id="line"></li></ul>
       <div id="greenOption">
       <NavLink to="/users/1" id="profileButton" 
         className={buttonSize("profileButton")}
