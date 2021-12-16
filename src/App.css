@@ -9,8 +9,8 @@
   background: rgb(255, 242, 0);
   border-radius: 50%;
   position: absolute;
-  left: 70%;
-  right: 30%;
+  left: 65%;
+  right: 35%;
   text-align: center;
 }
 
@@ -24,8 +24,8 @@
   background: rgb(181, 230, 23);
   border-radius: 50%;
   position: absolute;
-  left: 50%;
-  right: 50%;
+  left: 45%;
+  right: 55%;
   text-align: center;
 }
 
@@ -35,8 +35,8 @@
   background: rgb(255, 128, 64);
   border-radius: 50%;
   position: absolute;
-  left: 90%;
-  right: 10%;
+  left: 85%;
+  right: 15%;
   text-align: center;
 }
 
@@ -91,6 +91,16 @@ li#line {
   height: 20px;
   background: rgb(0, 128, 0);
   border: solid green 2px;
+}
+
+div.pages {
+  position: absolute;
+  text-align: center;
+}
+
+.Home img {
+  width: 50%;
+  height: 50%;
 }
 
 
