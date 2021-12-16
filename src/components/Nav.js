@@ -28,6 +28,10 @@ function Nav({user, vendor, clearUser}){
 
   const authOptions = (
     <>
+    <ul className="userNav">
+      <li><strong>Login OR Create An Account To View Information On Specific Farmers</strong></li>
+      <li id="line"></li>
+    </ul>
     <div id="greenOption">
       <NavLink to="/users/login" onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave} id="loginButton" className={buttonSize("loginButton")}>Login</NavLink>
