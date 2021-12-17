@@ -94,13 +94,32 @@ li#line {
 }
 
 div.pages {
+  width: 75%;
+  min-height: 80%;
+  overflow: auto;
+  margin: auto;
   position: absolute;
+  top: 40%; left: 0; bottom: 32%; right: 0;
+  opacity: 100%;
+  font-weight: bold;
   text-align: center;
 }
 
+div.pages, ul, li {
+  display:block;
+  background: white;
+  border: white;
+}
+
+div.LocationShow, p {
+  width: 70%;
+  text-align: center;
+  position: relative;
+}
+
 .Home img {
-  width: 50%;
-  height: 50%;
+  width: 45%;
+  height: 45%;
 }
 
 
