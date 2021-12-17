@@ -105,17 +105,22 @@ div.pages {
   text-align: center;
 }
 
-div.pages, ul, li {
+div.pages > ul {
   display:block;
   background: white;
   border: white;
 }
 
-div.LocationShow, p {
+#location-description {
   width: 70%;
-  text-align: center;
-  position: relative;
+  margin: 0 auto;
 }
+
+.EventCard {
+  position: inherit;
+}
+
+
 
 .Home img {
   width: 45%;

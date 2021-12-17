@@ -26,7 +26,7 @@ function LocationShow() {
       <li>Address: {address}, Zipcode: {zipcode}</li>
       <li>Hours: {hours}</li>
     </ul>
-    <p>{description}</p>
+    <p id="location-description">{description}</p>
     <EventIndex />
   </div>
 
