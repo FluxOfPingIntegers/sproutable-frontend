@@ -70,12 +70,13 @@ a#signupButton {
   bottom: 25%;
 }
 
-ul.userNav, li {
+ul.userNav > li {
   display: inline;
   background: rgb(239, 227, 175);
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   border: solid rgb(179, 87, 20) 2px;
+  
 }
 
 li#usernameNav {
@@ -105,10 +106,11 @@ div.pages {
   text-align: center;
 }
 
-div.pages > ul {
-  display:block;
+ div.LocationShow > ul, ul.EventCard {
+  display: block;
   background: white;
   border: white;
+  list-style-type: none;
 }
 
 #location-description {
