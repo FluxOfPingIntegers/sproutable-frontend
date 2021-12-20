@@ -32,7 +32,7 @@ function VendorEdit({vendor, validVendorParams, user}) {
     return <>
       <h2>Welcome {vendor.username}</h2>
       <h3>Please Edit Your Information:</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="editForm">
         <label>
           Username:
           <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} /><br />

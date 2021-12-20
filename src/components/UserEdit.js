@@ -47,9 +47,9 @@ function UserEdit(props) {
 
   const editUserForm = () => {
     return (
-      <div className="edit-user-form">
+      <>
       <h1>Please Edit Your Information</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="editForm">
         <label>
           Username:
           <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
@@ -88,7 +88,7 @@ function UserEdit(props) {
         </label>
         <input type="submit" value="Submit" />
       </form>
-      </div>
+      </>
     )
   }
   return (!!user.username ? editUserForm() : unauthorizedUser())
