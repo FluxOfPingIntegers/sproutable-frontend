@@ -7,7 +7,7 @@ function VendorShow({vendor}) {
   const productListings = productList()
   return <div className="vendor">
     <h1>{username}</h1>
-    <img src={image} alt="No Pic Available" />
+    <img id="imageShow" src={image} alt="No Pic Available" />
     <p>We Know The Following Information About This Farmer:</p>
     <ul className="showInfo">
       <li>Email: {info(email)}</li>

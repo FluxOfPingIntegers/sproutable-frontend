@@ -29,7 +29,7 @@ const userInfo = () => {
     return (
       <div className="UserShow">
         <h1>{username}</h1>
-        <img src={image} alt="Not Available" />
+        <img id="imageShow" src={image} alt="Not Available" />
         <h3>Your Information:</h3>
         <ul className="showInfo">
           <li>Name: {name}</li>

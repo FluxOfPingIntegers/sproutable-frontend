@@ -21,7 +21,7 @@ function LocationShow() {
 
   const loadedPage = () => <div className="LocationShow">
     <h1>{name}</h1>
-    <img src={image} alt={name}/>
+    <img id="imageShow" src={image} alt={name}/>
     <ul className="showInfo">
       <li>Address: {address}, Zipcode: {zipcode}</li>
       <li>Hours: {hours}</li>

@@ -26,7 +26,7 @@ function ProductShow() {
         <li>Category: {info(category)}</li>
         <li>Price: {info(price)}</li>
       </ul>
-      <img src={info(image)} alt="No Pic Available" />
+      <img id="imageShow" src={info(image)} alt="No Pic Available" />
       <p>Description: {info(description)}</p>
     </>
   }

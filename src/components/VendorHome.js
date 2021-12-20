@@ -16,7 +16,7 @@ function VendorHome({vendor}) {
       <li>Website: {info(website)}</li>
       <li>Image URL: {info(image)}</li>
     </ul>
-    <img id="vendor-home-image" src={info(image)} alt="No Image Available" />
+    <img id="imageShow" src={info(image)} alt="No Image Available" />
     <p>Click <a href={`/vendors/${vendor.id}/edit`}>here</a> to edit this account</p>
     {productListings}
   </div>

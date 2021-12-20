@@ -136,6 +136,11 @@ ul.showInfo {
   padding-right: 0;
 }
 
+#imageShow {
+  max-width: 500px;
+  max-height: 500px;
+}
+
 
 
 /*
