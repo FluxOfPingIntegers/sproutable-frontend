@@ -20,11 +20,11 @@ function EventShow() {
  const eventInfo = () => {
    <>
   <p>The Following Farmers Will Be Tabling This Event</p>
-  <ul>
+  <ul className="showInfo">
     {vendors.map(vendor => <li>Name: {vendor.name}</li>)}
   </ul>
   <p>The Following Items Will Be At This Event</p>
-  <ul>
+  <ul className="showInfo">
     {items.map(item => <li>Name: {item.name} Category: {item.category} Price: {item.price}</li>)}
   </ul>
    </>

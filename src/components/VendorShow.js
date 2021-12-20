@@ -9,7 +9,7 @@ function VendorShow({vendor}) {
     <h1>{username}</h1>
     <img src={image} alt="No Pic Available" />
     <p>We Know The Following Information About This Farmer:</p>
-    <ul>
+    <ul className="showInfo">
       <li>Email: {info(email)}</li>
       <li>Zip Code: {info(zipcode)}</li>
       <li>Venmo Username: {info(venmoname)}</li>

@@ -76,7 +76,6 @@ ul.userNav > li {
   margin: 0 auto;
   padding: 0;
   border: solid rgb(179, 87, 20) 2px;
-  
 }
 
 li#usernameNav {
@@ -131,7 +130,7 @@ div.pages {
   height: 45%;
 }
 
-#userInfo {
+ul.showInfo {
   list-style-type: none;
   padding-left: 0;
   padding-right: 0;

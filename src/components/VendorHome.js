@@ -8,7 +8,7 @@ function VendorHome({vendor}) {
   return <div className="vendor">
     <h2>Welcome {username} To Your Vendor Portal</h2>
     <p>We have the following information regarding this account</p>
-    <ul>
+    <ul className="showInfo">
       <li>Name: {info(name)}</li>
       <li>Email: {info(email)}</li>
       <li>Zip Code: {info(zipcode)}</li>

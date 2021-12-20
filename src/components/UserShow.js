@@ -31,7 +31,7 @@ const userInfo = () => {
         <h1>{username}</h1>
         <img src={image} alt="Not Available" />
         <h3>Your Information:</h3>
-        <ul id="userInfo">
+        <ul className="showInfo">
           <li>Name: {name}</li>
           <li>Email: {email}</li>
           <li>Zip Code: {zipcode}</li>
