@@ -120,6 +120,8 @@ div.pages {
 
 .EventCard {
   position: inherit;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 
@@ -127,6 +129,12 @@ div.pages {
 .Home img {
   width: 45%;
   height: 45%;
+}
+
+#userInfo {
+  list-style-type: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 
