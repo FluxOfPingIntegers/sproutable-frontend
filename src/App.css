@@ -70,8 +70,14 @@ a#signupButton {
   bottom: 25%;
 }
 
+.spacer {
+  font-size: 0;
+}
+
 ul.userNav > li {
   display: inline;
+  min-height: 20px;
+  font-size: 17px;
   background: rgb(239, 227, 175);
   margin: 0 auto;
   padding: 0;
@@ -122,8 +128,6 @@ div.pages {
   padding-left: 0;
   padding-right: 0;
 }
-
-
 
 .Home img {
   width: 45%;

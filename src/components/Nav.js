@@ -28,10 +28,12 @@ function Nav({user, vendor, clearUser}){
 
   const authOptions = (
     <>
+    <div className="spacer">
     <ul className="userNav">
-      <li><strong>Login OR Create An Account To View Information On Specific Farmers</strong></li>
+      <li><strong>Login OR Signup To View Information On Specific Farmers</strong></li>
       <li id="line"></li>
     </ul>
+    </div>
     <div id="greenOption">
       <NavLink to="/users/login" onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave} id="loginButton" className={buttonSize("loginButton")}>Login</NavLink>
@@ -74,7 +76,9 @@ function Nav({user, vendor, clearUser}){
 
   const userDisplay = (
     <>
+    <div className="spacer">
       <ul className="userNav" ><li>Currently Logged In As: </li><li id="usernameNav">{user.username}</li><li id="line"></li></ul>
+    </div>
       <div id="greenOption">
       <NavLink to="/users/1" id="profileButton" 
         className={buttonSize("profileButton")}
