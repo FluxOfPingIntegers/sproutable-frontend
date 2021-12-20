@@ -158,6 +158,19 @@ ul.showInfo {
   float: right;
 }
 
+#newForm {
+  max-width: 30%;
+  display: inline-block;
+}
+
+#newForm > label {
+  float: left;
+}
+
+#newForm > input {
+  float: right;
+}
+
 
 /*
 .App {
