@@ -145,6 +145,18 @@ ul.showInfo {
   max-height: 500px;
 }
 
+#editForm {
+  max-width: 30%;
+  display: inline-block;
+}
+
+#editForm > label {
+  float: left;
+}
+
+#editForm > input {
+  float: right;
+}
 
 
 /*

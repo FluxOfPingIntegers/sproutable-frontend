@@ -42,19 +42,19 @@ function Auth(props){
     <>
     <label>
       Password Confirmation:
+      </label>
       <input type="password" 
         name="password_confirmation" 
         value={passwordConfirmation} 
         onChange={(e) => setPasswordConfirmation(e.target.value)} /><br />
-    </label>
     <label>
       Email:
-      <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
     </label>
+      <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
     <label>
       Zip Code: 
-      <input type="number" name="zipCode" value={zipCode} onChange={(e) => setZipCode(e.target.value)} /><br />
     </label>
+      <input type="number" name="zipCode" value={zipCode} onChange={(e) => setZipCode(e.target.value)} /><br />
     </>
     )
   }
@@ -65,12 +65,12 @@ function Auth(props){
       <form onSubmit={handleSubmit}>
         <label>
           Username: 
-          <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label><br />
+        </label>
+          <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
         <label>
           Password: 
-          <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label><br />
+        </label>
+          <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
         {(signup ? signupForm() : <> </>)}
         <input type="submit" value="Submit" />
         </form>

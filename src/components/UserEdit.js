@@ -52,41 +52,41 @@ function UserEdit(props) {
       <form onSubmit={handleSubmit} id="editForm">
         <label>
           Username:
-          <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
         </label>
+          <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
         <label>
           Name:
-          <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} /><br />
         </label>
+          <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} /><br />
         <label>
           Email:
-          <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
         </label>
+          <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
         <label>
           Password:
-          <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
         </label>
+          <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
         <label>
           Confirm Password:
+          </label>
           <input type="password" 
             name="password_confirmation" 
             value={passwordConfirmation} 
             onChange={(e) => setPasswordConfirmation(e.target.value)} 
           /><br />
-        </label>
         <label>
           User Image URL: 
-          <input type="text" name="image" value={image} onChange={(e) => setImage(e.target.value)} /><br />
         </label>
+          <input type="text" name="image" value={image} onChange={(e) => setImage(e.target.value)} /><br />
         <label>
           Zip Code: 
-          <input type="number" name="zipcode" value={zipcode} onChange={(e) => setZipCode(e.target.value)} /><br />
         </label>
+          <input type="number" name="zipcode" value={zipcode} onChange={(e) => setZipCode(e.target.value)} /><br />
         <label>
           Venmo Username:
-          <input type="text" name="venmoname" value={venmoname} onChange={(e) => setVenmoName(e.target.value)} /><br />
         </label>
-        <input type="submit" value="Submit" />
+          <input type="text" name="venmoname" value={venmoname} onChange={(e) => setVenmoName(e.target.value)} /><br />
+        <input type="submit" value="Submit" id="submit"/>
       </form>
       </>
     )

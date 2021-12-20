@@ -28,31 +28,31 @@ function VendorNew({vendor, validVendorParams, user}) {
   const validNew = () => {
     return <>
       <h3>Complete The Form Below To Create A New Vendor Account</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="newForm">
         <label>
           Username:
-          <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
         </label>
+          <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
         <label>
           Email:
-          <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
         </label>
+          <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
         <label>
           Zip Code: 
-          <input type="number" name="zipcode" value={zipCode} onChange={(e) => setZipCode(e.target.value)} /><br />
         </label>
+          <input type="number" name="zipcode" value={zipCode} onChange={(e) => setZipCode(e.target.value)} /><br />
         <label>
           Venmo Username:
-          <input type="text" name="venmoname" value={venmoname} onChange={(e) => setVenmoName(e.target.value)} /><br />
         </label>
+          <input type="text" name="venmoname" value={venmoname} onChange={(e) => setVenmoName(e.target.value)} /><br />
         <label>
           Image Url:
-          <input type="text" name="image" value={image} onChange={(e) => setImage(e.target.value)} /><br />
         </label>
+          <input type="text" name="image" value={image} onChange={(e) => setImage(e.target.value)} /><br />
         <label>
           Website Url:
-          <input type="text" name="website" value={website} onChange={(e) => setWebsite(e.target.value)} /><br />
         </label>
+          <input type="text" name="website" value={website} onChange={(e) => setWebsite(e.target.value)} /><br />
         <input type="submit" value="Submit" />
       </form>
     </>
