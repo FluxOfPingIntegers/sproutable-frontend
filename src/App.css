@@ -179,6 +179,23 @@ ul.showInfo {
   display: inline-block;
 }
 
+ul#SideNav {
+  list-style-type: none;
+  display: inline-block;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+#purpleBox {
+  position: absolute;
+  background-color: rgba(212, 43, 228, 0.527);
+  min-width: 10%;
+  border-radius: 25px;
+  text-align: center;
+}
+
 
 /*
 .App {
