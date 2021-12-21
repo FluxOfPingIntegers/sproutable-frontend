@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import { useState } from "react"
 import { clearLocation, getLocations } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import LocationCard from "../components/LocationCard"

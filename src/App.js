@@ -1,7 +1,6 @@
 import './App.css'
 import LocationIndex from './containers/LocationIndex'
 import LocationShow from './components/LocationShow'
-import ZipSearch from './components/ZipSearch'
 import Nav from './components/Nav'
 import Auth from './components/Auth'
 import UserEdit from './components/UserEdit'
@@ -32,7 +31,6 @@ function App() {
         <Route exact path="/users/signup" element={<Auth />} />
         <Route exact path="/users/1/edit" element={<UserEdit />} />
         <Route path="/users/:user_id" element={<UserContainer />} />
-        <Route exact path="/locations/zip-search" element={<ZipSearch />} />
         <Route exact path="/vendors/new" element={<VendorForm />} />
         <Route exact path="/vendors/:vendor_id/products/:id" element={<ProductShow />} />
         <Route exact path="/vendors/:vendor_id/products/new" element={<ProductNew />} />
