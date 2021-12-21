@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { clearLocation, getLocations } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import LocationCard from "../components/LocationCard"
+import Loading from "../components/Loading"
 import { useLocation } from 'react-router-dom'
 
 function LocationIndex({getLocations, locations}){
@@ -13,10 +14,16 @@ function LocationIndex({getLocations, locations}){
   return clearLocation
 }, [getLocations, zipSearch, clearLocation])
 
-
-  return <div id="LocationIndex">
+  const locationsList = () => {
+    return <div id="LocationIndex">
     {locations.map(location => <LocationCard {...location} key={location.id}/>)}
   </div>
+  }
+
+  const locationDisplay = (locations.length > 0 ? locationsList() : <Loading />)
+
+
+  return locationDisplay
 }
 
 const mapStateToProps = (state) => {
