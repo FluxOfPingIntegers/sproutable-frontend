@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import {clearUser} from '../redux/actionCreators'
 import ZipSearch from './ZipSearch'
 import { useState } from 'react'
+import SideNav from './SideNav'
 
 function Nav({user, vendor, clearUser}){
   const [selectedButton, setSelectedButton] = useState("")
@@ -42,6 +43,7 @@ function Nav({user, vendor, clearUser}){
       <NavLink to="/users/signup" onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave} id="signupButton" className={buttonSize("signupButton")}>Signup</NavLink>
     </div>
+      <SideNav />
     </>
   )
 
@@ -96,6 +98,7 @@ function Nav({user, vendor, clearUser}){
         onMouseLeave={handleMouseLeave}
       >Logout</NavLink>
       </div>
+      <SideNav user={user} />
     </>
   )
 

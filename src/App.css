@@ -16,6 +16,9 @@
 
 #searchbar {
   margin: 20px;
+  position: absolute;
+  left: 15%;
+  top: 3%;
 }
 
 #greenOption {
@@ -169,6 +172,11 @@ ul.showInfo {
 
 #newForm > input {
   float: right;
+}
+
+#About {
+  max-width: 50%;
+  display: inline-block;
 }
 
 
