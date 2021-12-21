@@ -3,6 +3,7 @@ import LocationIndex from './containers/LocationIndex'
 import LocationShow from './components/LocationShow'
 import Nav from './components/Nav'
 import Auth from './components/Auth'
+import About from './components/About'
 import UserEdit from './components/UserEdit'
 import UserContainer from './containers/UserContainer'
 import { Routes as Switch, Route } from "react-router-dom"
@@ -36,6 +37,7 @@ function App() {
         <Route exact path="/vendors/:vendor_id/products/new" element={<ProductNew />} />
         <Route exact path="/vendors/:vendor_id/edit" element={<VendorForm />} />
         <Route exact path="/vendors/:vendor_id" element={<VendorContainer />} />
+        <Route exact path="/about" element={<About />} />
         <Route exact path="/" element={<Home />} />
       </Switch>
       </div>
