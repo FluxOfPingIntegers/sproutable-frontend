@@ -20,6 +20,8 @@ export const initialEvent = Object.assign(initialLocation.location, {
   items: []
 })
 
+export const initialEvents = []
+
 export const initialUser = {
   id: "",
   username: "",

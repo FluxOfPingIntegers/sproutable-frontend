@@ -1,4 +1,4 @@
-import {initialLocation, initialUser, initialEvent, initialVendor, initialProduct} from './initialStates'
+import {initialLocation, initialUser, initialEvent, initialVendor, initialProduct, initialEvents} from './initialStates'
 
 const initialState = {
   locations: [],
@@ -6,6 +6,7 @@ const initialState = {
   selectedUser: initialUser,
   selectedZip: 20500,
   selectedEvent: initialEvent,
+  selectedEvents: initialEvents,
   selectedVendor: initialVendor,
   selectedProduct: initialProduct
 }
@@ -40,6 +41,10 @@ export function reducer(state=initialState, action){
       return {...state, selectedEvent: action.payload}
     case "CLEAR_EVENT":
       return {...state, selectedEvent: initialEvent}
+    case "SET_EVENTS":
+      return {...state, selectedEvents: action.payload}
+    case "CLEAR_EVENTS":
+      return {...state, selectedEvents: initialEvents}
     case "SET_PRODUCT":
       console.log("SET_PRODUCT, payload=", action.payload)
       return {...state, selectedProduct: action.payload}
