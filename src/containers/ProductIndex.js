@@ -31,6 +31,7 @@ function ProductIndex({products, vendorId}) {
   return <>
   <h3>These products are produced by your farm</h3>
   {productsList}
+  <p>Click <a href={`/vendors/${vendor.id}/products/new`}>here</a> if you would like to list additional products.</p>
   </>
 }
 
