@@ -8,7 +8,12 @@ function ProductIndex({products, vendorId}) {
   const vendorProductsDisplay = (products) => {
     console.log("productIndex, productsDisplay products=", products)
     if (products.length > 0 && vendor.id === vendorId) {
-      return <ul>{products.map(product => <ProductCard product={product} vendorId={vendorId} key={product.id} owner={true}/>)}</ul>
+      return (
+      <>
+        <ul>{products.map(product => <ProductCard product={product} vendorId={vendorId} key={product.id} owner={true}/>)}</ul>
+        <p>Click <a href={`/vendors/${vendor.id}/products/new`}>here</a> if you would like to list additional products.</p>
+      </>  
+      )
     } else if (products.length > 0 && vendor.id !== vendorId) {
       return <ul>{products.map(product => <ProductCard product={product} vendorId={vendorId} key={product.id} owner={false}/>)}</ul>
     } else if (products.length < 1 && vendor.id === vendorId) {
@@ -31,7 +36,6 @@ function ProductIndex({products, vendorId}) {
   return <>
   <h3>These products are produced by your farm</h3>
   {productsList}
-  <p>Click <a href={`/vendors/${vendor.id}/products/new`}>here</a> if you would like to list additional products.</p>
   </>
 }
 
