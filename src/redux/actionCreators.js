@@ -180,8 +180,7 @@ export const submitNewProduct = ({vendorId, productParams}) => {
 
 export const clearProduct = () => {return dispatch => dispatch({type: "CLEAR_PRODUCT"})}
 
-export const getEvents = ({zipParams}) => {
-  const zipcode = zipParams.zipcode
+export const getEvents = ({zipcode}) => {
   return dispatch => fetch(`${url}/zip-search/${zipcode}/events`, {
     method: 'GET',
     headers: {
