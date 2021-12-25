@@ -180,14 +180,14 @@ export const submitNewProduct = ({vendorId, productParams}) => {
 
 export const clearProduct = () => {return dispatch => dispatch({type: "CLEAR_PRODUCT"})}
 
-export const getEvents = ({vendorId, zipParams}) => {
-  return dispatch => fetch(`${url}/vendors/${vendorId}/events`, {
-    method: 'POST',
+export const getEvents = ({zipParams}) => {
+  const zipcode = zipParams.zipcode
+  return dispatch => fetch(`${url}/zip-search/${zipcode}/events`, {
+    method: 'GET',
     headers: {
       'Authorization': localStorage.token,
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(zipParams)
+    }
   })
   .then(response => response.json())
   .then(events => {return (!!events.ok ? dispatch({type: "SET_EVENTS", payload: events}) : window.alert(events.errors))})
