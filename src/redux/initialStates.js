@@ -35,7 +35,8 @@ export const initialUser = {
 
 export const initialVendor = Object.assign(initialUser, {
   website: "",
-  products: []
+  products: [],
+  stalls: []
 })
 
 export const initialProduct = {

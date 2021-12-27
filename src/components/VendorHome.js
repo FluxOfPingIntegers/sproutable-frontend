@@ -1,4 +1,5 @@
 import ProductIndex from '../containers/ProductIndex'
+import VendorEventList from '../containers/VendorEventList'
 
 function VendorHome({vendor}) {
     const { username, name, email, image, zipcode, venmoname, website, products } = vendor
@@ -19,6 +20,7 @@ function VendorHome({vendor}) {
     <img id="imageShow" src={info(image)} alt="No Image Available" />
     <p>Click <a href={`/vendors/${vendor.id}/edit`}>here</a> to edit this account</p>
     {productListings}
+    <VendorEventList vendor={vendor} />
   </div>
 }
 

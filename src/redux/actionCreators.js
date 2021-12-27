@@ -189,7 +189,9 @@ export const getEvents = ({zipcode}) => {
     }
   })
   .then(response => response.json())
-  .then(events => {return (!!events.ok ? dispatch({type: "SET_EVENTS", payload: events}) : window.alert(events.errors))})
+  .then(result => {return (!!result.events ? dispatch({type: "SET_EVENTS", payload: result.events}) : window.alert(result.errors))})
 }
+
+export const clearEvents = () => {return dispatch => dispatch({type: "CLEAR_EVENTS"})}
 
 export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}

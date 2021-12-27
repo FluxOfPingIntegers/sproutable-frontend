@@ -196,6 +196,26 @@ ul#SideNav {
   text-align: center;
 }
 
+#eventForm {
+  display: inline-block;
+}
+
+#eventForm > label {
+  float: right;
+}
+
+#eventForm > input {
+  float: left;
+}
+
+#eventSelection {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  background-color: rgb(181, 230, 23);
+  border-radius: 25px;
+  min-width: 80%;
+}
 
 /*
 .App {
