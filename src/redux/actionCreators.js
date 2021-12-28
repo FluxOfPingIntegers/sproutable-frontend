@@ -194,4 +194,17 @@ export const getEvents = ({zipcode}) => {
 
 export const clearEvents = () => {return dispatch => dispatch({type: "CLEAR_EVENTS"})}
 
+export const createStalls = (stallParams) => {
+  return dispatch => fetch(`${url}/stalls`, {
+    method: 'POST',
+    headers: {
+      'Authorization': localStorage.token,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(stallParams)
+  })
+  .then(response => response.json())
+  .then(result => {return (!!result.id ? dispatch({type: "SET_VENDOR", payload: result}) : window.alert(result.errors))})
+}
+
 export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}

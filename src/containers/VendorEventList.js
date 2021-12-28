@@ -1,9 +1,11 @@
-import { getEvents, clearEvents } from '../redux/actionCreators'
-import { useEffect } from "react"
-import { connect } from 'react-redux'
+import { getEvents, clearEvents, createStalls } from '../redux/actionCreators'
+import { useEffect, useState } from "react"
+import { connect, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import EventSelect from '../components/EventSelect'
 
 function VendorEventList({vendor, getEvents, events}) {
+  const [stallList, setStallList] = useState(vendor.stalls)
 
   useEffect(() => {
     if (!!vendor.zipcode) {
@@ -12,16 +14,36 @@ function VendorEventList({vendor, getEvents, events}) {
     return clearEvents
   }, [getEvents, clearEvents])
 
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const eventList = () => {
     const eventSelection = events.map(eventListings => {
       const event = eventListings[0]
-      return <EventSelect event={event} vendorId={vendor.id} key={event.id} />
+
+      const isTabled = (stall) => {
+        return (!!stall.stall ? stall.stall.event_id === event.id : event.id === stall.event_id)
+      }
+
+      if (stallList.some(isTabled)) { 
+        return <EventSelect event={event} key={event.id} stall={true} stallList={stallList} setStallList={setStallList}/>
+      } else {
+        return <EventSelect event={event} key={event.id} stall={false} stallList={stallList} setStallList={setStallList}/>
+      }
     })
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      const stallParams = stallList.map(stall => JSON.parse(stall))
+      dispatch(createStalls({stalls: stallParams}))
+      navigate(`/vendors/${vendor.id}`)
+    }
+
     return (
       <div id="eventSelection">
         <h3>The Following Are A List Of Nearby Events</h3>
         <p>Please check the ones you intend to sell your products at</p>
-        <form id="eventForm">
+        <form id="eventForm" onSubmit={handleSubmit}>
           {eventSelection}
           <input type="submit" value="Submit" />
         </form>
@@ -43,4 +65,4 @@ const mapStateToProps = (state) => {
   return {events: state.selectedEvents}
 }
 
-export default connect(mapStateToProps, { getEvents })(VendorEventList)
+export default connect(mapStateToProps, { getEvents, createStalls })(VendorEventList)

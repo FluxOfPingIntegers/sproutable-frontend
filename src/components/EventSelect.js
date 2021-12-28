@@ -1,15 +1,29 @@
-import { useState } from 'react'
 
-export default function EventSelect({event, vendorId}) {
-  const [attendingEvent, selectAttendingEvent] = useState(() => false)
+export default function EventSelect({event, stall, stallList, setStallList}) {
 
-  const name = `stall${event.id}`
+  const name = `stall`
 
-  const eventParams = {event_id: event.id, vendor_id: vendorId}
+  const eventParams = JSON.stringify({event_id: event.id})
+
+  const handleChange = (e) => {
+    setStallList([...stallList, e.target.value])
+  }
+
+  const inputBox = () => {
+    if (stall) {
+    return <input type="checkbox" name={name} value={eventParams} onChange={handleChange} checked />
+    } else { 
+    return <input type="checkbox" name={name} value={eventParams} onChange={handleChange} />
+    }
+  }
+
+  const inputBoxDisplay = inputBox()
+
+  const eventUrl = `/locations/${event.location_id}/events/${event.id}`
 
   return <>
-  <input type="checkbox" name={name} value={eventParams} />
-  <label>Name: <u>{event.name}</u> Address: <u>{event.address}</u> Date: <u>{event.date}</u></label><br />
+  {inputBoxDisplay}
+  <label>Name: <u><a href={eventUrl}>{event.name}</a></u> Address: <u>{event.address}</u> Date: <u>{event.date}</u></label><br />
   </>
 
 

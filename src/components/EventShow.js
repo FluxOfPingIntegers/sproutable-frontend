@@ -18,20 +18,33 @@ function EventShow() {
   }, [getEvent, eventId, locationId, clearEvent])
 
  const eventInfo = () => {
-   <>
+   const itemsList = () => {
+     if (items.length > 0) {
+      return items.map(item => <li key={item.id}>Name: {item.name} Category: {item.category} Price: {item.price}</li>)
+     } else {
+      return <li>No Items Listed</li>
+     }
+    }
+    const itemsDisplay = itemsList()
+
+    const vendorsDisplay = vendors.map(vendor => <li key={vendor.id}>Name: {vendor.username}</li>)
+    console.log("EventShow, items=", items)
+  return (
+  <>
   <p>The Following Farmers Will Be Tabling This Event</p>
   <ul className="showInfo">
-    {vendors.map(vendor => <li>Name: {vendor.name}</li>)}
+    {vendorsDisplay}
   </ul>
   <p>The Following Items Will Be At This Event</p>
   <ul className="showInfo">
-    {items.map(item => <li>Name: {item.name} Category: {item.category} Price: {item.price}</li>)}
+    {itemsDisplay}
   </ul>
-   </>
+  </>
+  )
  }
 
  const isEventVacant = () => {
-   return (vendors.length === 0 || items.length === 0) ? true : false
+   return (vendors.length === 0)
  }
 
   return <div className="EventShow">
