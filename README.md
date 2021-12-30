@@ -20,7 +20,7 @@ This web app searches locations via zip code from a Rails backend that utilizes 
 ```bash
 git clone git@github.com:FluxOfPingIntegers/congo_client.git
 ```
-then switch the the folder you just created by typing
+then switch to the folder you just created by typing
 ```bash
 cd congo_client
 ```

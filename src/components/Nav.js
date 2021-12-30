@@ -31,7 +31,7 @@ function Nav({user, vendor, clearUser}){
     <>
     <div className="spacer">
     <ul className="userNav">
-      <li><strong>Login OR Signup To View Information On Specific Farmers</strong></li>
+      <li><strong>Login OR Signup To See Information On Specific Farmers</strong></li>
       <li id="line"></li>
     </ul>
     </div>
