@@ -23,7 +23,9 @@ export default function EventSelect({event, stall, stallList, setStallList}) {
 
   return <>
   {inputBoxDisplay}
-  <label>Name: <u><a href={eventUrl}>{event.name}</a></u> Address: <u>{event.address}</u> Date: <u>{event.date}</u></label><br />
+  <label>Name: <u><a href={eventUrl}>{event.name}</a></u></ label><br />
+  <label>Address: <u>{event.address}</u></ label><br />
+  <label>Date: <u>{event.date}</u></label><br />
   </>
 
 
