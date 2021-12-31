@@ -20,7 +20,10 @@ function EventShow() {
  const eventInfo = () => {
    const itemsList = () => {
      if (items.length > 0) {
-      return items.map(item => <li key={item.id}>Name: {item.name} Category: {item.category} Price: {item.price}</li>)
+      return items.map(item => {
+        let itemShow = `/vendors/${item.vendor_id}/products/${item.id}`
+        return <li key={item.id}>Name: <a href={itemShow}>{item.name}</a> Category: {item.category} Price: {item.price}</li>
+      })
      } else {
       return <li>No Items Listed</li>
      }
