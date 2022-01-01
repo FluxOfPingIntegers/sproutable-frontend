@@ -31,7 +31,6 @@ function EventShow() {
     const itemsDisplay = itemsList()
 
     const vendorsDisplay = vendors.map(vendor => <li key={vendor.id}>Name: <a href={`/vendors/${vendor.id}`}>{vendor.username}</a></li>)
-    console.log("EventShow, items=", items)
   return (
   <>
   <p>The Following Farmers Will Be Tabling This Event</p>

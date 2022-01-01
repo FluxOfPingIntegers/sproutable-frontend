@@ -1,16 +1,17 @@
+import { useState } from 'react'
 
-export default function EventSelect({event, stall, stallList, setStallList}) {
-
+export default function EventSelect({event, stall, getStallList, setStallList}) {
+  const [stallCheck, setStallCheck] = useState(stall)
   const name = `stall`
 
   const eventParams = JSON.stringify({event_id: event.id})
-
-  const handleChange = (e) => {
-    setStallList([...stallList, e.target.value])
+  const handleChange = () => {
+    setStallCheck(!stallCheck)
+    debugger
   }
 
   const inputBox = () => {
-    if (stall) {
+    if (stallCheck) {
     return <input type="checkbox" name={name} value={eventParams} onChange={handleChange} checked />
     } else { 
     return <input type="checkbox" name={name} value={eventParams} onChange={handleChange} />
@@ -27,6 +28,5 @@ export default function EventSelect({event, stall, stallList, setStallList}) {
   <label>Address: <u>{event.address}</u></ label><br />
   <label>Date: <u>{event.date}</u></label><br />
   </>
-
 
 }

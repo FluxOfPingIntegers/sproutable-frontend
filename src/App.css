@@ -2,7 +2,6 @@
   font-size: 21px;
 }
 
-
 #yellowOption {
   width: 160px;
   height: 80px;
@@ -187,7 +186,6 @@ ul#SideNav {
   padding-right: 0;
 }
 
-
 #purpleBox {
   position: absolute;
   background-color: rgba(212, 43, 228, 0.527);
@@ -217,83 +215,6 @@ ul#SideNav {
   min-width: 80%;
 }
 
-/*
-.App {
-  text-align: center;
-  background-image: url("./assets/images/farmArt.jpg");
-  opacity: 75%;
-  min-height: 100vh;
-  position: relative;
-  background-size: cover;
-  background-position: 50%, 50%;
-}
-
-.LocationCard {
-  max-width: 60vh;
-  border: 2px solid yellow;
-  margin: auto;
-}
-
-div.pages {
-  width: 75%;
-  min-height: 80%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 40%; left: 0; bottom: 32%; right: 0;
-  background-color: rgba(0, 180, 24, 0.7);
-  opacity: 100%;
-  border: solid black;
-  font-weight: bold;
-}
-
-.Nav {
-  box-shadow: inset 0 0 0 1000px rgba(252, 152, 1, 0.199);
-  font-weight: bold;
-  text-align: center;
-  min-height: 75px;
-  line-height: 75px;
-  background-image: url("./assets/images/sunflowerbanner.gif");
-  background-size: 75px;
-}
-
-#nav {
-  max-width: 50vh;
-  max-height: 9vh;
-  width: 75%;
-  margin: 0 auto;
-  border: 2px solid blue;
-  background-color: rgba(255, 255, 255, 0.801)
-}
-
-#ZipSearch {
-  width: 50%;
-  height: 50%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 50%; left: 0; bottom: 50%; right: 0;
-  background-color: rgba(194, 103, 0, 0.5);
-  border: solid black;
-  font-weight: bold;
-}
-
-#zip-form {
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  top: 1; left: 0; bottom: 0; right: 0;
-}
-
-.Home img {
-  width: 50%;
-  height: 50%;
-}
-
-ul {
-  list-style-type: none;
-}
-*/
 
 .App-logo {
   height: 40vmin;

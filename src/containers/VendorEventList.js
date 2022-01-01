@@ -6,6 +6,7 @@ import EventSelect from '../components/EventSelect'
 
 function VendorEventList({vendor, getEvents, events}) {
   const [stallList, setStallList] = useState(vendor.stalls)
+  const getStallList = () => {return stallList}
 
   useEffect(() => {
     if (!!vendor.zipcode) {
@@ -26,16 +27,17 @@ function VendorEventList({vendor, getEvents, events}) {
       }
 
       if (stallList.some(isTabled)) { 
-        return <EventSelect event={event} key={event.id} stall={true} stallList={stallList} setStallList={setStallList}/>
+        return <EventSelect event={event} key={event.id} stall={true} getStallList={getStallList} setStallList={setStallList} />
       } else {
-        return <EventSelect event={event} key={event.id} stall={false} stallList={stallList} setStallList={setStallList}/>
+        return <EventSelect event={event} key={event.id} stall={false} getStallList={getStallList} setStallList={setStallList} />
       }
-    })
+      })
 
     const handleSubmit = (e) => {
+      debugger
       e.preventDefault()
-      const stallParams = stallList.map(stall => JSON.parse(stall))
-      dispatch(createStalls({stalls: stallParams}))
+      const stallParams = {stalls: stallList}
+      dispatch(createStalls(stallParams))
       navigate(`/vendors/${vendor.id}`)
     }
 
