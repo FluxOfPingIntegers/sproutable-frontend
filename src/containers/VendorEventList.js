@@ -6,7 +6,6 @@ import EventSelect from '../components/EventSelect'
 
 function VendorEventList({vendor, getEvents, events}) {
   const [formParams, setFormParams] = useState([])
-  const stallList = vendor.stalls
 
   useEffect(() => {
     if (!!vendor.zipcode) {
