@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import EventSelect from '../components/EventSelect'
 
 function VendorEventList({vendor, getEvents, events}) {
-  const [stallList, setStallList] = useState(vendor.stalls)
-  const getStallList = () => {return stallList}
+  const [formParams, setFormParams] = useState([])
+  const stallList = vendor.stalls
 
   useEffect(() => {
     if (!!vendor.zipcode) {
@@ -19,24 +19,22 @@ function VendorEventList({vendor, getEvents, events}) {
   const navigate = useNavigate()
 
   const eventList = () => {
+    const applyChange = (formInput) => {
+      if (formInput.isChecked) {
+        setFormParams([...formParams, formInput.value])
+      } else {
+        const newFormParams = formParams.filter(event => event.event_id != formInput.value.event_id)
+        setFormParams(newFormParams)
+      }
+    }
     const eventSelection = events.map(eventListings => {
       const event = eventListings[0]
-
-      const isTabled = (stall) => {
-        return (!!stall.stall ? stall.stall.event_id === event.id : event.id === stall.event_id)
-      }
-
-      if (stallList.some(isTabled)) { 
-        return <EventSelect event={event} key={event.id} stall={true} getStallList={getStallList} setStallList={setStallList} />
-      } else {
-        return <EventSelect event={event} key={event.id} stall={false} getStallList={getStallList} setStallList={setStallList} />
-      }
-      })
+      return <EventSelect event={event} key={event.id} applyChange={applyChange} />
+    })
 
     const handleSubmit = (e) => {
-      debugger
       e.preventDefault()
-      const stallParams = {stalls: stallList}
+      const stallParams = {stalls: formParams}
       dispatch(createStalls(stallParams))
       navigate(`/vendors/${vendor.id}`)
     }
@@ -64,7 +62,9 @@ function VendorEventList({vendor, getEvents, events}) {
 }
 
 const mapStateToProps = (state) => {
-  return {events: state.selectedEvents}
+  return {
+    events: state.selectedEvents
+  }
 }
 
 export default connect(mapStateToProps, { getEvents, createStalls })(VendorEventList)

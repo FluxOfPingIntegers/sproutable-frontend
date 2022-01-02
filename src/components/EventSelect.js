@@ -1,13 +1,21 @@
-import { useState } from 'react'
+import { connect } from 'react-redux'
 
-export default function EventSelect({event, stall, getStallList, setStallList}) {
-  const [stallCheck, setStallCheck] = useState(stall)
+const EventSelect = ({event, stalls, applyChange}) => {
+  const stallCheck = stalls.some(stall => {
+    return (!!stall.stall ? stall.stall.event_id === event.id : event.id === stall.event_id)
+    }
+  )
   const name = `stall`
 
   const eventParams = JSON.stringify({event_id: event.id})
-  const handleChange = () => {
-    setStallCheck(!stallCheck)
-    debugger
+  const eventParamsJson = JSON.parse(eventParams)
+
+  const handleChange = (e) => {
+    if (e.target.checked) {
+      applyChange({value: eventParamsJson, isChecked: true})
+    } else {
+      applyChange({value: eventParamsJson, isChecked: false})
+    }
   }
 
   const inputBox = () => {
@@ -30,3 +38,9 @@ export default function EventSelect({event, stall, getStallList, setStallList}) 
   </>
 
 }
+
+const mapStateToProps = (state) => {
+  return {stalls: state.selectedUser.vendor.stalls}
+}
+
+export default connect(mapStateToProps)(EventSelect)
