@@ -5,7 +5,6 @@ const EventSelect = ({event, stalls, applyChange}) => {
     return (!!stall.stall ? stall.stall.event_id === event.id : event.id === stall.event_id)
     }
   )
-  const name = `stall`
 
   const eventParams = JSON.stringify({event_id: event.id})
   const eventParamsJson = JSON.parse(eventParams)
@@ -20,9 +19,9 @@ const EventSelect = ({event, stalls, applyChange}) => {
 
   const inputBox = () => {
     if (stallCheck) {
-    return <input type="checkbox" name={name} value={eventParams} onChange={handleChange} checked />
+    return <input type="checkbox" name='stall' value={eventParams} onChange={handleChange} checked />
     } else { 
-    return <input type="checkbox" name={name} value={eventParams} onChange={handleChange} />
+    return <input type="checkbox" name='stall' value={eventParams} onChange={handleChange} />
     }
   }
 
