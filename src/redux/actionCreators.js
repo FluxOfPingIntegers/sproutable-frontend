@@ -220,7 +220,7 @@ export const destroyStall = ({eventId}) => {
     }
   })
   .then(response => response.json())
-  .then(result => {return (!!result.success ? dispatch({type: "CLEAR_EVENT"}) : window.alert(result.errors))})
+  .then(result => {return (!!result.id ? dispatch({type: "SET_VENDOR", payload: result}) : window.alert(result.errors))})
 }
 
 export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}

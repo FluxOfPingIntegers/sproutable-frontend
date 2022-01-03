@@ -7,7 +7,7 @@ function EventShow() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const event = useSelector((state) => (state.selectedEvent))
-  const userVendor = useSelector((state) => state.user.vendor)
+  const userVendor = useSelector((state) => state.selectedUser.vendor)
   const {name, hours, address, zipcode, date, vendors, items} = event
   const eventPath = useLocation().pathname.toString()
   const eventPathArray = eventPath.split("/")
