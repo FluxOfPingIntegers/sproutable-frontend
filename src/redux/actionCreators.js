@@ -211,4 +211,16 @@ export const createStalls = (stallParams) => {
   })
 }
 
+export const destroyStall = ({eventId}) => {
+  return dispatch => fetch(`${url}/events/${eventId}/stalls`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': localStorage.token,
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(result => {return (!!result.success ? dispatch({type: "CLEAR_EVENT"}) : window.alert(result.errors))})
+}
+
 export const setZipCode = (zipcode) => {return dispatch => dispatch({type: "SET_ZIPCODE", payload: zipcode})}

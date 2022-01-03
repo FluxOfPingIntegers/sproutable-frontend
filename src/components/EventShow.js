@@ -1,11 +1,13 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import {getEvent, clearEvent} from '../redux/actionCreators'
+import {getEvent, clearEvent, destroyStall} from '../redux/actionCreators'
 
 function EventShow() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const event = useSelector((state) => (state.selectedEvent))
+  const userVendor = useSelector((state) => state.user.vendor)
   const {name, hours, address, zipcode, date, vendors, items} = event
   const eventPath = useLocation().pathname.toString()
   const eventPathArray = eventPath.split("/")
@@ -30,7 +32,20 @@ function EventShow() {
     }
     const itemsDisplay = itemsList()
 
-    const vendorsDisplay = vendors.map(vendor => <li key={vendor.id}>Name: <a href={`/vendors/${vendor.id}`}>{vendor.username}</a></li>)
+    const handleCancelClick = () => {
+      dispatch(destroyStall({eventId: event.id}))
+      navigate(`/vendors/${userVendor.id}`)
+    }
+
+    const vendorsDisplay = vendors.map(vendor => {
+      if (userVendor.id == vendor.id) {
+        return <li key={vendor.id}>
+          <strong>You are marked as tabling this event</strong> <button onClick={handleCancelClick}>Cancel?</button>
+          </li>
+      } else {
+        return  <li key={vendor.id}>Name: <a href={`/vendors/${vendor.id}`}>{vendor.username}</a></li>
+      }
+    })
   return (
   <>
   <p>The Following Farmers Will Be Tabling This Event</p>
