@@ -1,4 +1,4 @@
-const url = "http://localhost:3000"
+const url = process.env.REACT_APP_PRODUCTION_API
 
 export const getLocations = (zipcode) => {
   return dispatch => fetch(`${url}/locations/zip-search/${zipcode}`)
@@ -93,7 +93,7 @@ export const submitVendorUpdate = (vendor) => {
 
 export const getVendor = (vendorId) => {
   return dispatch => fetch(`${url}/vendors/${vendorId}`)
-    .then(response=>response.json())
+    .then(response=> response.json())
     .then(result => dispatch({type: "GET_VENDOR", payload: result}))
 }
 

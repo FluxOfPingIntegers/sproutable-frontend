@@ -28,10 +28,22 @@ finally you will need to fire up VS code by entering
 ```bash
 code .
 ```
+• Third: Once inside VS code this app requires you to create a .env file to your root directory and add it to your .gitignore file.  Once this is done you will need to set an ENV variable called LOCAL_API in order to communicate with the backend.  Instructions to do this can be found [here](https://create-react-app.dev/docs/adding-custom-environment-variables/).  This need to be set like the following inside your .env file:
+```
+REACT_APP_LOCAL_API=http://localhost:3000
+```
+then navigate within this apps directory to src/redux/actionCreator.js and on line 1 you will change:
+```
+const url = process.env.REACT_APP_PRODUCTION_API
+```
+to the following:
+```
+const url = process.env.REACT_APP_LOCAL_API
+```
 
-• Third: You will need to clone/run the repo for the backend for this software. Instructions can be found in the README [here](https://github.com/FluxOfPingIntegers/sproutable-backend)
+• Fourth: You will need to clone/run the repo for the backend for this software. Instructions can be found in the README [here](https://github.com/FluxOfPingIntegers/sproutable-backend)
 
-• Fourth: After starting up the associated backend Rails server, go back within this repo.  Inside VS code within the main folder type 
+• Fifth: After starting up the associated backend Rails server, go back within this repo.  Inside VS code within the main folder type 
 ```bash
 npm install
 ```
