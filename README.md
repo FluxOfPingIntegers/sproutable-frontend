@@ -42,11 +42,11 @@ const url = process.env.REACT_APP_LOCAL_API
 ```
 then you will also need to navigate to package.json within your root folder for this app and on line 19 change it from:
 ```
-"start": "PORT=3001 react-scripts start",
+"start": "react-scripts start",
 ```
 to the following:
 ```
-"start": "react-scripts start",
+"start": "PORT=3001 react-scripts start",
 ```
 
 • Fourth: You will need to clone/run the repo for the backend for this software. Instructions can be found in the README [here](https://github.com/FluxOfPingIntegers/sproutable-backend)
