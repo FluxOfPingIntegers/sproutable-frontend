@@ -1,6 +1,6 @@
 # Sproutable A Place for Sprout Tables
 
-This web app searches locations via zip code from a Rails backend that utilizes the USDA National [Farmers Market Directory API](https://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html/) and displays pages with pictures pulled from [Imsea](https://imsea.herokuapp.com/) the image Api. along with information about products provided and hours of operation.
+This web app searches locations via zip code from a Rails backend that utilizes the USDA National [Farmers Market Directory API](https://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html/) and displays pages with pictures pulled from [Imsea](https://imsea.herokuapp.com/) the image Api. along with information about products provided and hours of operation.  This project is currently deployed [here](https://sprouttable.herokuapp.com/)
 
 ## Getting started
 
