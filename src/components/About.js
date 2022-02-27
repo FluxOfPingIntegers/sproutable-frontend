@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <div id="About">
-    <h2>What is Sproutable?</h2>
+    <h2>What is Sproutable!</h2>
     <p>Sproutable is an online resource seeking to connect community farmers and makers with those who appreciate these locally sourced goods and/or services.</p>
     <h2>How do I use it?</h2>
     <p>Simply enter your zip code or one nearby into the search bar on the top left.  A list of local farmers markets will appear, click on one to view its details and find out about its next upcoming event.</p>
